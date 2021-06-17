@@ -29,7 +29,11 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { ReportComponent } from './report/report.component';
+<<<<<<< HEAD
 import { Calculator4Component } from './calculator4/calculator4.component';
+=======
+import { Calculator3Component } from './calculator3/calculator3.component';
+>>>>>>> refs/remotes/origin/main
 // import { TestpdfComponent } from './testpdf/testpdf.component';
 // import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
 @NgModule({
@@ -39,7 +43,11 @@ import { Calculator4Component } from './calculator4/calculator4.component';
     Calculator2Component,
     LoginComponent,
     ReportComponent,
+<<<<<<< HEAD
     Calculator4Component,
+=======
+    Calculator3Component,
+>>>>>>> refs/remotes/origin/main
     
     
     
