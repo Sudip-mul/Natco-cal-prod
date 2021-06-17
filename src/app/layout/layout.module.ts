@@ -5,7 +5,7 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -18,12 +18,13 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 // import { Calculator1Component } from './calculator1/calculator1.component';
 import { MatRadioModule } from '@angular/material/radio';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { PatientDetailComponent } from './header/patient-detail/patient-detail.c
     SidebarComponent,
     HomeLayoutComponent,
     LoginLayoutComponent,
-    PatientDetailComponent
+    PatientDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +53,8 @@ import { PatientDetailComponent } from './header/patient-detail/patient-detail.c
     MatDividerModule,
     MatListModule,
     MatRadioModule,
-    MatDialogModule
-  ]
+    MatDialogModule,
+    MatSelectModule,
+  ],
 })
-export class LayoutModule { }
+export class LayoutModule {}

@@ -1,1 +1,195 @@
-<p>calculator3 works!</p>
+<div class="container-fluid page">
+  <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
+    <div class="page__content shadow p-3 position-relative"> -->
+  <mat-card>
+    <mat-card-title class="header">IMPROVE Risk Score for VTE</mat-card-title>
+    <mat-card-content class="content">
+      The International Medical Prevention Registry on Venous Thromboembolism
+      (IMPROVE) score predicts 3-month risk of venous thromboembolism (VTE) in
+      hospitalized patients and should not be used in outpatients. Scores
+      derived from seven clinical factors during hospitalization may help us to
+      further understand symptomatic VTE risk. The weighted VTE risk scores
+      showed an association between a higher risk score and a higher observed
+      VTE rate and identified high-risk patient subgroups, including those with
+      higher overall and VTE-related mortality.
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="secondcard">
+    <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
+    <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
+      <div class="row">
+        <div class="col-sm-6">
+          <p class="p-tag">
+            <span>Previous VTE</span>
+
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score1"
+              >
+                <mat-radio-button value="3">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Known thrombophilia</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score2"
+              >
+                <mat-radio-button value="2">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Current lower-limb paralysis</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score3"
+              >
+                <mat-radio-button value="2">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Current cancer</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score4"
+              >
+                <mat-radio-button value="2">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <p class="p-tag">
+            <span>Immobilized ≥7 days*</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score5"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>ICU/CCU stay</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score6"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Age >60 years</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score7"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <p class="p-tag">
+          <span><button mat-stroked-button type="submit">Submit</button></span>
+          <span class="clear-btn"
+            ><span class="clear" mat-stroked-button (click)="reset()"
+              >Clear</span
+            ></span
+          >
+        </p>
+        <hr />
+        <div>
+          <p class="p-tag box">
+            *Immediately prior to and during hospital admission.
+            <!-- <span class="i-icon">
+              <mat-icon (click)="openDialog()">error_outline</mat-icon>
+            </span> -->
+          </p>
+        </div>
+        <hr />
+        <p class="inter-head">Interpretation</p>
+        <!-- <p class="p-tag">
+                    <span>Score: {{score}}</span>
+                    
+                 </p>  -->
+        <table>
+          <tr class="res_table">
+            <th>IMPROVE Risk Score</th>
+            <th>Clinical interpretation</th>
+          </tr>
+          <tr>
+            <td>{{ score }}</td>
+            <td>{{ risk_cat }} 3-month VTE risk.</td>
+          </tr>
+        </table>
+      </div>
+    </form>
+
+    <!-- <div class="disclaimer">
+            <p class="disc_head">Disclaimer: </p>
+            <span class="disc_def">HAS-BLED has been validated for warfarin, but not for the new anticoagulants. Calculations alone should never dictate patient care, and are no substitute for professional judgement.</span>
+        </div> -->
+
+    <div class="reference">
+      <p class="ref_head">Reference:</p>
+      <p class="ref_def">
+        Spyropoulos AC, Anderson FA Jr, FitzGerald G, et al. Predictive and
+        associative models to identify hospitalized medical patients at risk for
+        VTE. Chest. 2011;140(3):706-714.
+      </p>
+    </div>
+
+    <!-- <table>
+        <tr class="res_table">
+            <th>Has Bled Score</th>
+            <th>Bleeds per 100 patient years</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1.13</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1.02</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1.88</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3.74</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>8.70</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>12.5</td>
+        </tr>
+    </table> -->
+  </mat-card>
+</div>

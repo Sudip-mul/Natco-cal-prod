@@ -1,1 +1,235 @@
-<p>calculator4 works!</p>
+<div class="container-fluid page">
+  <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
+    <div class="page__content shadow p-3 position-relative"> -->
+  <mat-card>
+    <mat-card-title class="header"
+      >CHA2DS2-VASc Score for Stroke Risk Assessment in Atrial
+      Fibrillation</mat-card-title
+    >
+    <mat-card-content class="content">
+      The CHADS2 score (congestive heart failure, hypertension, age ≥75 years,
+      diabetes mellitus, stroke [double weight]) was developed to more
+      accurately predict the risk of stroke in patients with nonrheumatic atrial
+      fibrillation. Consequently, CHADS2 was expanded to include three
+      additional independent risk factors: vascular disease (coronary artery
+      disease, peripheral artery disease, aortic atherosclerosis), age 65-74
+      years, and female sex. This new, more inclusive scoring system is the
+      CHA2DS2-VASc score. The 2016 European Society of Cardiology (ESC)
+      guidelines recommend using the CHA2DS2-VASc score to estimate stroke risk
+      in AF patients and to start oral anticoagulant (OAC) in men with a score
+      of 1 or higher and women with a score of 2 or higher.1
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="secondcard">
+    <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
+    <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
+      <div class="row">
+        <div class="col-sm-5">
+          <p class="p-tag">
+            <span>Congestive heart failure</span>
+
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score1"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Hypertension</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score2"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Age ≥75 years</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score3"
+              >
+                <mat-radio-button value="2">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Diabetes mellitus</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score4"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+        </div>
+        <div class="col-sm-7">
+          <p class="p-tag">
+            <span>Stroke/Transient Ischemic Attack/Thromboembolic event</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score5"
+              >
+                <mat-radio-button value="2">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Vascular disease (prior MI, PAD, or aortic plaque)</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score6"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Age 65 to 74 years</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score7"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Sex category (ie, female sex)</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score8"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <p class="p-tag">
+          <span><button mat-stroked-button type="submit">Submit</button></span>
+          <span class="clear-btn"
+            ><span class="clear" mat-stroked-button (click)="reset()"
+              >Clear</span
+            ></span
+          >
+        </p>
+        <hr />
+        <!-- <div>
+          <p class="p-tag box">
+            Adjusted stroke rate scores are based on data from Lip and
+            colleagues. The actual rates of stroke in contemporary cohorts may
+            vary from these estimates.
+            <span class="i-icon">
+              <mat-icon (click)="openDialog()">error_outline</mat-icon>
+            </span>
+          </p>
+        </div>
+        <hr /> -->
+        <p class="inter-head">Interpretation</p>
+        <!-- <p class="p-tag">
+                    <span>Score: {{score}}</span>
+                    
+                 </p>  -->
+        <table>
+          <tr class="res_table">
+            <th>Total score</th>
+            <th>Risk level</th>
+            <th>Thromboembolic event rate</th>
+            <th>Treatment Recommendations (ESC guidelines 2010)</th>
+          </tr>
+          <tr>
+            <td>{{ score }}</td>
+            <td>{{ risk_level }}</td>
+            <td>{{ throm_event_rate }}</td>
+            <td>{{ treat_recom }}</td>
+          </tr>
+        </table>
+      </div>
+    </form>
+
+    <!-- <div class="disclaimer">
+            <p class="disc_head">Disclaimer: </p>
+            <span class="disc_def">HAS-BLED has been validated for warfarin, but not for the new anticoagulants. Calculations alone should never dictate patient care, and are no substitute for professional judgement.</span>
+        </div> -->
+
+    <div class="disclaimer">
+      <p class="disc_head">Disclaimer:</p>
+      <span class="disc_def"
+        >Calculations alone should never dictate patient care, and are no
+        substitute for professional judgement.</span
+      >
+    </div>
+
+    <div class="reference">
+      <p class="ref_head">References:</p>
+      <ol class="ref_def">
+        <li>
+          CHADS2 Score for Stroke Risk Assessment in Atrial Fibrillation.
+          Accessed May 23, 2021.
+          https://emedicine.medscape.com/article/2172597-overview.
+        </li>
+        <li>
+          Odum LE, Cochran KA, Aistrope DS, Snella KA. The CHADS₂versus the new
+          CHA2DS2-VASc scoring systems for guiding antithrombotic treatment of
+          patients with atrial fibrillation: review of the literature and
+          recommendations for use. Pharmacotherapy. 2012;32(3):285-296.
+        </li>
+      </ol>
+    </div>
+
+    <!-- <table>
+        <tr class="res_table">
+            <th>Has Bled Score</th>
+            <th>Bleeds per 100 patient years</th>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1.13</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1.02</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>1.88</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>3.74</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>8.70</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>12.5</td>
+        </tr>
+    </table> -->
+  </mat-card>
+</div>

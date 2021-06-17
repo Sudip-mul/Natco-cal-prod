@@ -71,8 +71,8 @@ th {
 }
 
 /* ::ng-deep.mat-radio-checked .mat-radio-inner-circle {
-    transform: scale(1);
-} */
+      transform: scale(1);
+  } */
 
 ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked
   .mat-radio-outer-circle {
@@ -85,13 +85,13 @@ th {
 }
 
 /* .square-radio {
-    border: 1px solid black;
-    margin: 2px;
-    width: 40px;
-    height: 20px;
-    position: relative;
-
-} */
+      border: 1px solid black;
+      margin: 2px;
+      width: 40px;
+      height: 20px;
+      position: relative;
+  
+  } */
 
 .mat-radio-button ~ .mat-radio-button {
   margin-left: 16px;
@@ -183,8 +183,8 @@ button.mat-focus-indicator.mat-stroked-button.mat-button-base {
 }
 
 /* p.box.p-tag {
-    background: border-box;
-    border: 1px solid #80808080;
-    border-radius: 4px;
-    padding: 5px;
-} */
+      background: border-box;
+      border: 1px solid #80808080;
+      border-radius: 4px;
+      padding: 5px;
+  } */
