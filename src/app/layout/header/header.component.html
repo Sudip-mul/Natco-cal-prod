@@ -1,0 +1,51 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <button mat-icon-button (click)="toggleSidebar()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class="example-spacer"></span>
+
+
+
+        <button class="patbtn" (click)="openpatient()">
+                    
+                    Load Patient
+                </button>
+
+
+
+        <button class="repbtn" routerLink="/report">
+                    
+                    View Report
+                </button>
+
+
+
+        <button class="clrbtn">
+                    
+                    Clear Data
+                </button>
+
+        <button class="logout" (click)="exit()">
+            <mat-icon>exit_to_app</mat-icon>
+        </button>
+
+
+        <!-- <div class="row">
+        <div class="col-sm-2">
+        <button class="pdfbtn">
+          <mat-icon>download</mat-icon>
+          Download PDF
+        </button>
+      </div>
+      <div class="col-sm-2">
+      <button class="logout" (click)="exit()">
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </div> -->
+
+
+
+
+    </mat-toolbar-row>
+</mat-toolbar>

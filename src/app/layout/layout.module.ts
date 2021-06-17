@@ -1,15 +1,7 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LayoutModule } from './layout/layout.module';
-import {PreloadAllModules, RouterModule} from '@angular/router';
-import { Calculator1Component } from './calculator1/calculator1.component';
-import { Calculator2Component } from './calculator2/calculator2.component';
-
-// import { LayoutRoutingModule } from './layout-routing.module';
+import { LayoutRoutingModule } from './layout-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -27,27 +19,23 @@ import { MatListModule } from '@angular/material/list';
 // import { Calculator1Component } from './calculator1/calculator1.component';
 import { MatRadioModule } from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
-import { LoginComponent } from './login/login.component';
-import { ReportComponent } from './report/report.component';
-// import { TestpdfComponent } from './testpdf/testpdf.component';
-// import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomeLayoutComponent } from './home-layout/home-layout.component';
+import { LoginLayoutComponent } from './login-layout/login-layout.component';
+import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
+
 @NgModule({
   declarations: [
-    AppComponent,
-    Calculator1Component,
-    Calculator2Component,
-    LoginComponent,
-    ReportComponent,
-    
-    
-    
+    HeaderComponent,
+    SidebarComponent,
+    HomeLayoutComponent,
+    LoginLayoutComponent,
+    PatientDetailComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    RouterModule.forRoot([]),
-    LayoutModule,
+    CommonModule,
+    LayoutRoutingModule,
     FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
@@ -64,9 +52,7 @@ import { ReportComponent } from './report/report.component';
     MatDividerModule,
     MatListModule,
     MatRadioModule,
-    MatDialogModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    MatDialogModule
+  ]
 })
-export class AppModule { }
+export class LayoutModule { }

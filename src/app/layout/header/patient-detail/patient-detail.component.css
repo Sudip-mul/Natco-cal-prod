@@ -1,0 +1,24 @@
+.head {
+    color: #005baa;
+}
+
+
+/* .submit {
+    background-color: #ee1e24;
+    color: #fff;
+    border-radius: 4px;
+    padding: 2px;
+    border-color: #80808026;
+    width: 70%;
+    margin-left: 28px;
+} */
+
+button.mat-focus-indicator.cancel.mat-button.mat-button-base {
+    background-color: #ee1e24;
+    color: white;
+}
+
+button.mat-focus-indicator.submit.mat-button.mat-button-base {
+    background-color: #005baa;
+    color: white;
+}

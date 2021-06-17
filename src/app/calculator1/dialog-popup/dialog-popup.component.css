@@ -1,0 +1,8 @@
+.head {
+    color: #005baa;
+}
+
+button.mat-focus-indicator.mat-button.mat-button-base {
+    background-color: #ee1e24;
+    color: white;
+}

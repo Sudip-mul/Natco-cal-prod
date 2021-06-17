@@ -1,0 +1,168 @@
+<div class="container-fluid page" id="print">
+
+    <p>
+        <span class="dnld_head">View download report</span>
+        <span><mat-icon class="download">download</mat-icon></span>
+    </p>
+
+    <mat-card>
+        <p class="doc-name">{{doc_detail}}</p>
+        <div>
+            <mat-card-title class="pat_header">Patient detail</mat-card-title>
+            <div class="row ">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Patient_ID:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{patient_id}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Name:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{name}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Gender:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{gender}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Age:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{age}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">City:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{city}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Blood Pressure:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{bp}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div>
+            <mat-card-title class="pat_header">HAS-BLED Score</mat-card-title>
+            <div class="row ">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Hypertension:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{score1}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Abnormal renal:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{score2}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Liver function:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{score3}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Stroke:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{score4}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Bleeding:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{score5}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Labile INRs:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{score6}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Elderly:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{score7}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Drugs:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{score8}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p class="sub-det">Alcohol:</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="sub-det">{{score9}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <p class="inter-head">Interpretation</p>
+            <!-- <p class="p-tag">
+                <span>Score: {{score}}</span>
+                
+             </p>  -->
+            <table>
+                <tr class="res_table">
+                    <th>Has Bled Score</th>
+                    <th>Bleeds per 100 patient years</th>
+                </tr>
+                <tr>
+                    <td>{{cal1_score}}</td>
+                    <td>{{refscore}}</td>
+                </tr>
+            </table>
+
+        </div>
+    </mat-card>
+</div>

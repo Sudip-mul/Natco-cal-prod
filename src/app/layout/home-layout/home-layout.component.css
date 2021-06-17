@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+mat-drawer {
+    width: 260px;
+}
+
+mat-drawer-container {
+    height: 100%;
+}
+
+mat-drawer {
+    background: #fff;
+}
+
+
+/* @media print {
+    .sidebar {
+        display: none;
+    }
+    .header {
+        display: none;
+    }
+    .printme {
+        margin: 0;
+    }
+} */
+
+@media screen and (max-width: 768px) {
+    /* mat-drawer.mat-drawer.ng-tns-c33-0.ng-trigger.ng-trigger-transform.mat-drawer-side.mat-drawer-opened.ng-star-inserted{
+      width: 50%;
+    }
+    mat-drawer-content.mat-drawer-content{
+      width: 180px;
+    } */
+}
