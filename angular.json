@@ -104,5 +104,8 @@
       }
     }
   },
-  "defaultProject": "natco-cal-prod"
+  "defaultProject": "natco-cal-prod",
+  "cli": {
+    "analytics": false
+  }
 }

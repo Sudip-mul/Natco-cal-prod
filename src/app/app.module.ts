@@ -29,6 +29,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import {MatDialogModule} from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { ReportComponent } from './report/report.component';
+import { Calculator4Component } from './calculator4/calculator4.component';
 // import { TestpdfComponent } from './testpdf/testpdf.component';
 // import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
 @NgModule({
@@ -38,6 +39,7 @@ import { ReportComponent } from './report/report.component';
     Calculator2Component,
     LoginComponent,
     ReportComponent,
+    Calculator4Component,
     
     
     
