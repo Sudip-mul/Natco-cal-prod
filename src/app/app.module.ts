@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './layout/layout.module';
-import {PreloadAllModules, RouterModule} from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { Calculator1Component } from './calculator1/calculator1.component';
 import { Calculator2Component } from './calculator2/calculator2.component';
 
@@ -13,7 +13,7 @@ import { Calculator2Component } from './calculator2/calculator2.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -26,11 +26,17 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 // import { Calculator1Component } from './calculator1/calculator1.component';
 import { MatRadioModule } from '@angular/material/radio';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from './login/login.component';
 import { ReportComponent } from './report/report.component';
 import { Calculator4Component } from './calculator4/calculator4.component';
 import { Calculator3Component } from './calculator3/calculator3.component';
+<<<<<<< HEAD
+=======
+import { Calculator5Component } from './calculator5/calculator5.component';
+import { Calculator6Component } from './calculator6/calculator6.component';
+import { MatSelectModule } from '@angular/material/select';
+>>>>>>> 2b1ccb8df1e761cf7c44697e2408cb0254da6ab6
 // import { TestpdfComponent } from './testpdf/testpdf.component';
 // import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
 @NgModule({
@@ -40,6 +46,7 @@ import { Calculator3Component } from './calculator3/calculator3.component';
     Calculator2Component,
     LoginComponent,
     ReportComponent,
+<<<<<<< HEAD
 
     Calculator4Component,
     Calculator3Component,
@@ -47,6 +54,12 @@ import { Calculator3Component } from './calculator3/calculator3.component';
     
     
     
+=======
+    Calculator4Component,
+    Calculator3Component,
+    Calculator5Component,
+    Calculator6Component,
+>>>>>>> 2b1ccb8df1e761cf7c44697e2408cb0254da6ab6
   ],
   imports: [
     BrowserModule,
@@ -71,8 +84,9 @@ import { Calculator3Component } from './calculator3/calculator3.component';
     MatListModule,
     MatRadioModule,
     MatDialogModule,
+    MatSelectModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

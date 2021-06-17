@@ -1,0 +1,176 @@
+<div class="container-fluid page">
+  <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
+        <div class="page__content shadow p-3 position-relative"> -->
+  <mat-card>
+    <mat-card-title class="header"
+      >Quick COVID-19 Severity Index</mat-card-title
+    >
+    <mat-card-content class="content">
+      A quick COVID-19 Severity Index with 3 variables (respiratory rate, pulse
+      oximetry, and oxygen flow rate) outperformed other models, including the
+      quick Sequential [Sepsis-related] Organ Failure Assessment and CURB-65, on
+      an independent validation cohort. The quick COVID-19 Severity Index model
+      may be useful to assist level-of-care decisions for admitted COVID-19
+      patients.
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="secondcard">
+    <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
+    <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
+      <div class="row">
+        <div class="col-sm-6">
+          <p class="p-tag">
+            <span>Repiratory rate, breaths/min</span>
+            <span class="radiobtn">
+              <input
+                class="inputbox"
+                matInput
+                type="number"
+                placeholder="Number..."
+                formControlName="score1"
+              />
+            </span>
+          </p>
+          <p class="p-tag">
+            <span>Pulse oximetry*</span>
+            <span class="radiobtn">
+              <input
+                class="inputbox"
+                matInput
+                type="number"
+                placeholder="Number..."
+                formControlName="score2"
+              />
+            </span>
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <p class="p-tag">
+            <span>O2 flow rate, L/min</span>
+            <span class="radiobtn">
+              <input
+                class="inputbox"
+                matInput
+                type="number"
+                placeholder="Number..."
+                formControlName="score3"
+              />
+            </span>
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <p class="p-tag">
+          <span><button mat-stroked-button type="submit">Submit</button></span>
+          <span class="clear-btn"
+            ><span class="clear" mat-stroked-button (click)="reset()"
+              >Clear</span
+            ></span
+          >
+        </p>
+        <hr />
+        <div>
+          <p class="p-tag box">
+            *Pulse oximetry represents the lowest value recorded during the
+            first 4 hours of the patient encounter
+            <!-- <span class="i-icon">
+                  <mat-icon (click)="openDialog()">error_outline</mat-icon>
+                </span> -->
+          </p>
+          <p class="p-tag box">
+            *Defined by oxygen requirement (>10 L/min by low-flow device,
+            high-flow device, non-invasive, or invasive ventilation) or death.
+            <!-- <span class="i-icon">
+                  <mat-icon (click)="openDialog()">error_outline</mat-icon>
+                </span> -->
+          </p>
+        </div>
+        <hr />
+        <p class="inter-head">Interpretation</p>
+        <!-- <p class="p-tag">
+                        <span>Score: {{score}}</span>
+                        
+                     </p>  -->
+        <table>
+          <tr class="res_table">
+            <th>qCSI Score</th>
+            <th>Risk group</th>
+            <th>Risk of critical illness* at 24 hrs</th>
+          </tr>
+          <tr>
+            <td>{{ score }}</td>
+            <td>{{ risk_group }}</td>
+            <td>{{ risk_critical }}</td>
+          </tr>
+        </table>
+      </div>
+    </form>
+
+    <div>
+      <p class="p-tag box">
+        *Respiratory failure within 24 hours of admission as defined by oxygen
+        requirement of >10 L/min by low-flow device, high-flow device,
+        noninvasive or invasive ventilation, or death.
+        <!-- <span class="i-icon">
+                <mat-icon (click)="openDialog()">error_outline</mat-icon>
+              </span> -->
+      </p>
+    </div>
+    <hr />
+
+    <!-- <div class="disclaimer">
+                <p class="disc_head">Disclaimer: </p>
+                <span class="disc_def">HAS-BLED has been validated for warfarin, but not for the new anticoagulants. Calculations alone should never dictate patient care, and are no substitute for professional judgement.</span>
+            </div> -->
+
+    <div class="reference">
+      <p class="ref_def">
+        Each patient in the validation cohort was assigned a score by quick
+        COVID-19 Severity Index, and the percentage who had a critical
+        respiratory illness outcome were plotted with a line plot. Patients were
+        then grouped into risk bins by quick COVID-19 Severity Index intervals
+        (0 to 3, 4 to 6, 7 to 9, and 10 to 12); the percentage of patients in
+        each group with the outcome is indicated in the bar plot.
+      </p>
+      <p class="ref_head">Reference:</p>
+      <p class="ref_def">
+        Haimovich AD, Ravindra NG, Stoytchev S, et al. Development and
+        Validation of the Quick COVID-19 Severity Index: A Prognostic Tool for
+        Early Clinical Decompensation. Ann Emerg Med. 2020;76(4):442-453.
+      </p>
+    </div>
+
+    <!-- <table>
+            <tr class="res_table">
+                <th>Has Bled Score</th>
+                <th>Bleeds per 100 patient years</th>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>1.13</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1.02</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>1.88</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>3.74</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>8.70</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>12.5</td>
+            </tr>
+        </table> -->
+  </mat-card>
+</div>
