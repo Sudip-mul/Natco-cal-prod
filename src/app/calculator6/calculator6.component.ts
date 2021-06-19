@@ -12,8 +12,8 @@ export class Calculator6Component implements OnInit {
   score2: number = 0;
   score3: number = 0;
   score: number = 0;
-  risk_group: string = '';
-  risk_critical: string = '';
+  risk_group: string = '-';
+  risk_critical: string = '-';
 
   constructor(public dialog: MatDialog) {}
 
@@ -31,8 +31,8 @@ export class Calculator6Component implements OnInit {
     this.formGroup.reset();
     // this.refscore = 0;
     this.score = 0;
-    this.risk_group = '';
-    this.risk_critical = '';
+    this.risk_group = '-';
+    this.risk_critical = '-';
   }
 
   ScoreSubmit() {

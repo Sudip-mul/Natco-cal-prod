@@ -67,6 +67,20 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'calculator7',
+        loadChildren: () =>
+          import('../calculator7/calculator7.module').then(
+            (m) => m.Calculator7Module
+          ),
+      },
+      {
+        path: 'disclaimer',
+        loadChildren: () =>
+          import('../disclaimer/disclaimer.module').then(
+            (m) => m.DisclaimerModule
+          ),
+      },
+      {
         path: 'report',
         loadChildren: () =>
           import('../report/report.module').then((m) => m.ReportModule),

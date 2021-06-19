@@ -37,12 +37,19 @@ export class HeaderComponent implements OnInit {
     this.detail = JSON.parse(this.detail);
 
     // console.log(this.doc_detail)
-    this.patient_id = this.detail['patient_id'];
-    this.name = this.detail['name'];
-    this.age = this.detail['age'];
-    this.gender = this.detail['gender'];
-    this.city = this.detail['city'];
-    this.bp = this.detail['bp'];
+    if (localStorage.getItem("patient_data") != null)
+    {
+      this.patient_id = this.detail['patient_id'];
+      this.name = this.detail['name'];
+      this.age = this.detail['age'];
+      this.gender = this.detail['gender'];
+      this.city = this.detail['city'];
+      this.bp = this.detail['bp'];
+    }
+    else
+    {
+      console.log('detail is empty')
+    }
   }
 
   ngOnInit(): void {}
@@ -110,32 +117,32 @@ export class HeaderComponent implements OnInit {
       doc.line(40, H1, 550, H1);
     }
 
-    function mycalc(calcname, calcparams, calcvalues) {
-      H1 = H1 + 30;
+    // function mycalc(calcname, calcparams, calcvalues) {
+    //   H1 = H1 + 30;
 
-      console.log(calcname);
-      subtitles();
-      doc.text(calcname, L1, H1);
+    //   console.log(calcname);
+    //   subtitles();
+    //   doc.text(calcname, L1, H1);
 
-      H1 = H1 + 30;
+    //   H1 = H1 + 30;
 
-      textinside();
-      let H2: number = H1 + 20;
-      for (var i = 0; i < calcparams.length; i++) {
-        if (i % 2 == 0) {
-          doc.text(calcparams[i], L1, H1);
-          doc.text(calcvalues[i], L2, H1);
-          H1 = H1 + 20;
-        } else {
-          H2 = H1 - 20;
-          doc.text(calcparams[i], L3, H2);
-          doc.text(calcvalues[i], L4, H2);
-          H1 = H2 + 20;
-        }
-      }
-      doc.setDrawColor(0, 91, 170);
-      doc.line(40, H1, 550, H1);
-    }
+    //   textinside();
+    //   let H2: number = H1 + 20;
+    //   for (var i = 0; i < calcparams.length; i++) {
+    //     if (i % 2 == 0) {
+    //       doc.text(calcparams[i], L1, H1);
+    //       doc.text(calcvalues[i], L2, H1);
+    //       H1 = H1 + 20;
+    //     } else {
+    //       H2 = H1 - 20;
+    //       doc.text(calcparams[i], L3, H2);
+    //       doc.text(calcvalues[i], L4, H2);
+    //       H1 = H2 + 20;
+    //     }
+    //   }
+    //   doc.setDrawColor(0, 91, 170);
+    //   doc.line(40, H1, 550, H1);
+    // }
 
     patientdetails();
 
@@ -155,9 +162,9 @@ export class HeaderComponent implements OnInit {
     // mycalc('HasBled score', ['Hypertension', 'Blood pressure'], ['Yes', 'No']);
     // console.log(allcalcs);
 
-    for (var z = 0; z < allcalcs.length; z++) {
-      mycalc(allcalcs[z][0], allcalcs[z][1], allcalcs[z][2]);
-    }
+    // for (var z = 0; z < allcalcs.length; z++) {
+    //   mycalc(allcalcs[z][0], allcalcs[z][1], allcalcs[z][2]);
+    // }
 
     doc.output('dataurlnewwindow');
   }

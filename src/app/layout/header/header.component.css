@@ -91,4 +91,16 @@ button.clrbtn {
         margin-left: -12px;
         margin-right: 10px;
     }
+    button.repbtn {
+        font-size: 14px;
+        padding: 0px 3px 0px 3px;
+    }
+    button.patbtn {
+        font-size: 14px;
+        padding: 0px 3px 0px 3px;
+    }
+    button.clrbtn {
+        font-size: 14px;
+        padding: 0px 3px 0px 3px;
+    }
 }

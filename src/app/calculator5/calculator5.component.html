@@ -1,33 +1,24 @@
 <div class="container-fluid page">
-  <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
+    <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
       <div class="page__content shadow p-3 position-relative"> -->
-  <mat-card>
-    <mat-card-title class="header"
-      >Cardiovascular Disease (10-year risk) calculator</mat-card-title
-    >
-    <mat-card-content class="content">
-      Framingham investigators formulated a general CVD risk function several
-      years ago. Using a multivariable-logistic regression model, they reported
-      that an algorithm that identified persons at high risk of atherosclerotic
-      CVD in general also was effective for identifying persons at risk for each
-      of the specific events, including CHD, stroke, intermittent claudication,
-      and heart failure. A sex-specific multivariable risk factor algorithm can
-      be conveniently used to assess general CVD risk and risk of individual CVD
-      events (coronary, cerebrovascular, and peripheral arterial disease and
-      heart failure). The estimated absolute CVD event rates can be used to
-      quantify risk and to guide preventive care.
-    </mat-card-content>
-  </mat-card>
+    <mat-card>
+        <mat-card-title class="header">Cardiovascular Disease (10-year risk) calculator</mat-card-title>
+        <mat-card-content class="content">
+            Framingham investigators formulated a general CVD risk function several years ago. Using a multivariable-logistic regression model, they reported that an algorithm that identified persons at high risk of atherosclerotic CVD in general also was effective
+            for identifying persons at risk for each of the specific events, including CHD, stroke, intermittent claudication, and heart failure. A sex-specific multivariable risk factor algorithm can be conveniently used to assess general CVD risk and
+            risk of individual CVD events (coronary, cerebrovascular, and peripheral arterial disease and heart failure). The estimated absolute CVD event rates can be used to quantify risk and to guide preventive care.
+        </mat-card-content>
+    </mat-card>
 
-  <mat-card class="secondcard">
-    <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
-    <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
-      <div class="row">
-        <div class="col-sm-6">
-          <p class="p-tag">
-            <span>Age (years)</span>
+    <mat-card class="secondcard">
+        <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
+        <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="p-tag">
+                        <span>Age (years)</span>
 
-            <span class="radiobtn">
+                        <span class="radiobtn">
               <input
                 class="inputbox"
                 matInput
@@ -36,10 +27,10 @@
                 formControlName="score1"
               />
             </span>
-          </p>
-          <p class="p-tag">
-            <span>HDL Chol</span>
-            <span class="radiobtn">
+                    </p>
+                    <p class="p-tag">
+                        <span>HDL Chol</span>
+                        <span class="radiobtn">
               <input
                 class="inputbox"
                 matInput
@@ -48,11 +39,11 @@
                 formControlName="score5"
               />
             </span>
-          </p>
+                    </p>
 
-          <p class="p-tag">
-            <span>Systolic Blood Pressure (mmHg)</span>
-            <span class="radiobtn">
+                    <p class="p-tag">
+                        <span>Systolic Blood Pressure (mmHg)</span>
+                        <span class="radiobtn">
               <input
                 class="inputbox"
                 matInput
@@ -61,10 +52,10 @@
                 formControlName="score3"
               />
             </span>
-          </p>
-          <p class="p-tag">
-            <span>Total Chol (mg/dL)</span>
-            <span class="radiobtn">
+                    </p>
+                    <p class="p-tag">
+                        <span>Total Chol (mg/dL)</span>
+                        <span class="radiobtn">
               <input
                 class="inputbox"
                 matInput
@@ -73,13 +64,12 @@
                 formControlName="score4"
               />
             </span>
-          </p>
-        </div>
-        <div class="col-sm-6">
-          <p class="p-tag">
-            <span>Gender</span>
-            <span class="radiobtn"
-              ><mat-radio-group
+                    </p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="p-tag">
+                        <span>Gender</span>
+                        <span class="radiobtn"><mat-radio-group
                 aria-label="Select an option"
                 formControlName="score2"
               >
@@ -90,8 +80,7 @@
           </p>
           <p class="p-tag">
             <span>On BP medication</span>
-            <span class="radiobtn"
-              ><mat-radio-group
+                        <span class="radiobtn"><mat-radio-group
                 aria-label="Select an option"
                 formControlName="score6"
               >
@@ -102,8 +91,7 @@
           </p>
           <p class="p-tag">
             <span>Cigarette smoker</span>
-            <span class="radiobtn"
-              ><mat-radio-group
+                        <span class="radiobtn"><mat-radio-group
                 aria-label="Select an option"
                 formControlName="score7"
               >
@@ -114,8 +102,7 @@
           </p>
           <p class="p-tag">
             <span>Diabetes present</span>
-            <span class="radiobtn"
-              ><mat-radio-group
+                        <span class="radiobtn"><mat-radio-group
                 aria-label="Select an option"
                 formControlName="score8"
               >
@@ -130,8 +117,7 @@
       <div>
         <p class="p-tag">
           <span><button mat-stroked-button type="submit">Submit</button></span>
-          <span class="clear-btn"
-            ><span class="clear" mat-stroked-button (click)="reset()"
+                        <span class="clear-btn"><span class="clear" mat-stroked-button (click)="reset()"
               >Clear</span
             ></span
           >
@@ -145,36 +131,37 @@
               <span class="i-icon">
                 <mat-icon (click)="openDialog()">error_outline</mat-icon>
               </span>
-            </p>
-          </div>
-          <hr /> -->
-        <p class="inter-head">Interpretation</p>
-        <!-- <p class="p-tag">
+                    </p>
+                </div>
+                <hr /> -->
+                <p class="inter-head">Interpretation</p>
+                <!-- <p class="p-tag">
                       <span>Score: {{score}}</span>
                       
                    </p>  -->
-        <table>
-          <tr class="res_table">
-            <th>CVD Risk for Women/Men (%)</th>
-            <th>Heart Age/Vascular Age for Women/Men (years)</th>
-          </tr>
-          <tr>
-            <td>{{ cvd_risk }}</td>
-            <td>{{ heart_age }}</td>
-          </tr>
-        </table>
-      </div>
-    </form>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr class="res_table">
+                            <th>CVD Risk for Women/Men (%)</th>
+                            <th>Heart Age/Vascular Age for Women/Men (years)</th>
+                        </tr>
+                        <tr>
+                            <td>{{ cvd_risk }}</td>
+                            <td>{{ heart_age }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </form>
 
-    <!-- <div class="disclaimer">
+        <!-- <div class="disclaimer">
               <p class="disc_head">Disclaimer: </p>
               <span class="disc_def">HAS-BLED has been validated for warfarin, but not for the new anticoagulants. Calculations alone should never dictate patient care, and are no substitute for professional judgement.</span>
           </div> -->
 
-    <div class="disclaimer">
-      <p class="disc_head">Disclaimer:</p>
-      <span class="disc_def"
-        >Calculations alone should never dictate patient care, and are no
+        <div class="disclaimer">
+            <p class="disc_head">Disclaimer:</p>
+            <span class="disc_def">Calculations alone should never dictate patient care, and are no
         substitute for professional judgement.</span
       >
     </div>

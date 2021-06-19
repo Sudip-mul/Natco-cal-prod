@@ -84,18 +84,20 @@
                     <span>Score: {{score}}</span>
                     
                  </p>  -->
-                <table>
-                    <tr class="res_table">
-                        <th>ATRIA Score</th>
-                        <th>Risk category</th>
-                        <th>Clinical interpretation</th>
-                    </tr>
-                    <tr>
-                        <td>{{score}}</td>
-                        <td>{{risk_cat}}</td>
-                        <td>{{bleeding_per}} Major Bleeding rate/ Annual Risk of Hemorrhage. {{treatment_rec}}</td>
-                    </tr>
-                </table>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr class="res_table">
+                            <th>ATRIA Score</th>
+                            <th>Risk category</th>
+                            <th>Clinical interpretation</th>
+                        </tr>
+                        <tr>
+                            <td>{{score}}</td>
+                            <td>{{risk_cat}}</td>
+                            <td>{{bleeding_per}} Major Bleeding rate/ Annual Risk of Hemorrhage. {{treatment_rec}}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </form>
 

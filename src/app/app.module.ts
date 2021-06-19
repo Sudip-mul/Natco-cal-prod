@@ -31,12 +31,11 @@ import { LoginComponent } from './login/login.component';
 import { ReportComponent } from './report/report.component';
 import { Calculator4Component } from './calculator4/calculator4.component';
 import { Calculator3Component } from './calculator3/calculator3.component';
-<<<<<<< HEAD
-=======
 import { Calculator5Component } from './calculator5/calculator5.component';
 import { Calculator6Component } from './calculator6/calculator6.component';
 import { MatSelectModule } from '@angular/material/select';
->>>>>>> 2b1ccb8df1e761cf7c44697e2408cb0254da6ab6
+import { Calculator7Component } from './calculator7/calculator7.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 // import { TestpdfComponent } from './testpdf/testpdf.component';
 // import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
 @NgModule({
@@ -46,20 +45,12 @@ import { MatSelectModule } from '@angular/material/select';
     Calculator2Component,
     LoginComponent,
     ReportComponent,
-<<<<<<< HEAD
-
-    Calculator4Component,
-    Calculator3Component,
-
-    
-    
-    
-=======
     Calculator4Component,
     Calculator3Component,
     Calculator5Component,
     Calculator6Component,
->>>>>>> 2b1ccb8df1e761cf7c44697e2408cb0254da6ab6
+    Calculator7Component,
+    DisclaimerComponent,
   ],
   imports: [
     BrowserModule,
