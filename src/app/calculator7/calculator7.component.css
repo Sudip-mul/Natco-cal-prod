@@ -1,4 +1,4 @@
-.mat-card:not([class*=mat-elevation-z]) {
+.mat-card:not([class*="mat-elevation-z"]) {
     /* box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%); */
     box-shadow: 0 0 20px 0 rgb(0 0 0 / 20%), 0 5px 5px 0 rgb(0 0 0 / 24%);
 }
@@ -11,14 +11,14 @@
 .header {
     color: #005baa;
     font-weight: 600;
-    font-family: 'poppins';
+    font-family: "poppins";
     font-size: 20px;
 }
 
 .pat_header {
     color: #005baa;
     font-weight: 600;
-    font-family: 'poppins';
+    font-family: "poppins";
     font-size: 20px;
 }
 
@@ -44,15 +44,15 @@
 
 td {
     border: 1px solid;
-    border-color: #E4E4E4;
+    border-color: #e4e4e4;
     text-align: center;
     color: #707070;
 }
 
 th {
     border: 1px solid;
-    border-color: #E4E4E4;
-    background-color: #EFEFEF;
+    border-color: #e4e4e4;
+    background-color: #efefef;
     color: #707070;
     /* padding-left: 50px;
     padding-right: 50px; */
@@ -63,37 +63,37 @@ th {
     float: right;
 }
 
-::ng-deep.mat-radio-outer-circle {
-    border-color: #BEBEBE;
+ ::ng-deep.mat-radio-outer-circle {
+    border-color: #bebebe;
 }
 
-::ng-deep.mat-radio-button.mat-accent .mat-radio-inner-circle {
+ ::ng-deep.mat-radio-button.mat-accent .mat-radio-inner-circle {
     background-color: #2e3192;
 }
 
 
 /* ::ng-deep.mat-radio-checked .mat-radio-inner-circle {
-    transform: scale(1);
-} */
+        transform: scale(1);
+    } */
 
-::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-    border-color: #BEBEBE;
+ ::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #bebebe;
 }
 
-::ng-deep.mat-radio-checked,
+ ::ng-deep.mat-radio-checked,
 .mat-radio-inner-circle {
     transform: scale(1);
 }
 
 
 /* .square-radio {
-    border: 1px solid black;
-    margin: 2px;
-    width: 40px;
-    height: 20px;
-    position: relative;
-
-} */
+        border: 1px solid black;
+        margin: 2px;
+        width: 40px;
+        height: 20px;
+        position: relative;
+    
+    } */
 
 .mat-radio-button~.mat-radio-button {
     margin-left: 16px;
@@ -127,21 +127,21 @@ span.clear-btn {
     color: #005baa;
     font-weight: 600;
     font-size: 20px;
-    font-family: 'poppins';
+    font-family: "poppins";
 }
 
 .disc_head {
     color: #005baa;
     font-weight: 600;
     font-size: 16px;
-    font-family: 'poppins';
+    font-family: "poppins";
 }
 
 .ref_head {
     color: #005baa;
     font-weight: 600;
     font-size: 16px;
-    font-family: 'poppins';
+    font-family: "poppins";
 }
 
 .disc_def {
@@ -183,10 +183,14 @@ button.mat-focus-indicator.mat-stroked-button.mat-button-base {
     margin-bottom: 10px;
 }
 
+.inputbox {
+    border: 1px solid gray;
+}
+
 
 /* p.box.p-tag {
-    background: border-box;
-    border: 1px solid #80808080;
-    border-radius: 4px;
-    padding: 5px;
-} */
+        background: border-box;
+        border: 1px solid #80808080;
+        border-radius: 4px;
+        padding: 5px;
+    } */

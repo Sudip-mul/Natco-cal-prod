@@ -34,6 +34,8 @@ import { Calculator3Component } from './calculator3/calculator3.component';
 import { Calculator5Component } from './calculator5/calculator5.component';
 import { Calculator6Component } from './calculator6/calculator6.component';
 import { MatSelectModule } from '@angular/material/select';
+import { Calculator7Component } from './calculator7/calculator7.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 // import { TestpdfComponent } from './testpdf/testpdf.component';
 // import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
 @NgModule({
@@ -47,6 +49,8 @@ import { MatSelectModule } from '@angular/material/select';
     Calculator3Component,
     Calculator5Component,
     Calculator6Component,
+    Calculator7Component,
+    DisclaimerComponent,
   ],
   imports: [
     BrowserModule,

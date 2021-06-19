@@ -37,12 +37,19 @@ export class HeaderComponent implements OnInit {
     this.detail = JSON.parse(this.detail);
 
     // console.log(this.doc_detail)
-    this.patient_id = this.detail['patient_id'];
-    this.name = this.detail['name'];
-    this.age = this.detail['age'];
-    this.gender = this.detail['gender'];
-    this.city = this.detail['city'];
-    this.bp = this.detail['bp'];
+    if (localStorage.getItem("patient_data") != null)
+    {
+      this.patient_id = this.detail['patient_id'];
+      this.name = this.detail['name'];
+      this.age = this.detail['age'];
+      this.gender = this.detail['gender'];
+      this.city = this.detail['city'];
+      this.bp = this.detail['bp'];
+    }
+    else
+    {
+      console.log('detail is empty')
+    }
   }
 
   ngOnInit(): void {}

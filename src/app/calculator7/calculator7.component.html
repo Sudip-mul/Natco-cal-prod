@@ -1,0 +1,174 @@
+<div class="container-fluid page">
+    <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
+      <div class="page__content shadow p-3 position-relative"> -->
+    <mat-card>
+        <mat-card-title class="header">Argatroban Dosing</mat-card-title>
+        <mat-card-content class="content">
+            Before administering argatroban, discontinue heparin therapy and obtain a baseline aPTT.
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="secondcard">
+        <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
+        <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="p-tag">
+                        <span>Body Weight (kg)</span>
+
+                        <span class="radiobtn">
+              <input
+                class="inputbox"
+                matInput
+                type="number"
+                placeholder="Number..."
+                formControlName="score1"
+              />
+            </span>
+                    </p>
+                    <p class="p-tag">
+                        <span>Indication</span>
+                        <span class="radiobtn">
+                            <mat-form-field>
+                                <mat-label>Select an option</mat-label>
+                                <mat-select disableRipple formControlName="score2" (selectionChange)="onSelectionChanged()">
+                                  <mat-option value="Patients with HIT" >Patients with HIT</mat-option>
+                                  <mat-option value="Patients Undergoing PCI">Patients Undergoing PCI</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+            </span>
+
+                    </p>
+
+                </div>
+                <div class="col-sm-6">
+                    <p class="p-tag" *ngIf="isShown" id="divshow">
+                        <span>Target ACT (sec)</span>
+                        <span class="radiobtn">
+              <input
+              [disabled] = s3d
+                class="inputbox"
+                matInput
+                type="number"
+                placeholder="Number..."
+                formControlName="score3"
+              />
+            </span>
+                    </p>
+                    <p class="p-tag">
+                        <span>Hepatic Impairment</span>
+                        <span class="radiobtn"><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score4"
+              >
+                <mat-radio-button value="Yes">Yes</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          
+        </div>
+      </div>
+
+      <div>
+        <p class="p-tag">
+          <span><button mat-stroked-button type="submit">Submit</button></span>
+                        <span class="clear-btn"><span class="clear" mat-stroked-button (click)="reset()"
+              >Clear</span
+            ></span
+          >
+        </p>
+        <hr />
+        <div>
+            <p class="p-tag box">
+                <li>ACT: Activated clotting time; PCI: Percutaneous Coronary Intervention; HIT: Heparin-Induced Thrombocytopenia.</li>
+
+                <li>No bolus dose is given if ACT greater than 450 seconds.
+                </li>
+                        <li>
+                For adult patients with HIT and moderate or severe hepatic impairment (based on Child-Pugh classification)</li>
+                        <!-- <li class="i-icon">
+                <mat-icon (click)="openDialog()">error_outline</mat-icon>
+              </li> -->
+                    </p>
+                </div>
+                <hr />
+                <p class="inter-head">Interpretation</p>
+                <!-- <p class="p-tag">
+                      <span>Score: {{score}}</span>
+
+                    </p> -->
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr class="res_table">
+                                <th>Bolus dose</th>
+                                <th>Bolus Volume (mL)</th>
+                                <th>Continuous Infusion Dose (mcg/min</th>
+                                <th>Continuous Infusion Rate (mL/hr)</th>
+                            </tr>
+                            <tr>
+                                <td>{{ bolus_dose }}</td>
+                                <td>{{ bolus_vol }}</td>
+                                <td>{{ infusion_dose }}</td>
+                                <td>{{ infusion_rate }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+        </form>
+
+        <!-- <div class="disclaimer">
+              <p class="disc_head">Disclaimer: </p>
+              <span class="disc_def">HAS-BLED has been validated for warfarin, but not for the new anticoagulants. Calculations alone should never dictate patient care, and are no substitute for professional judgement.</span>
+          </div> -->
+
+        <div class="disclaimer">
+            <p class="disc_head">{{head1}}</p>
+            <span class="disc_def">{{content1}}</span
+      >
+    </div>
+        <div class="disclaimer">
+            <p class="disc_head">{{head2}}</p>
+            <span class="disc_def">{{content2}}</span
+      >
+    </div>
+
+    <div class="reference">
+      <p class="ref_head">Reference:</p>
+      <p class="ref_def">
+        Arganat Monograph (Data on file).
+      </p>
+    </div>
+
+    <!-- <table>
+          <tr class="res_table">
+              <th>Has Bled Score</th>
+              <th>Bleeds per 100 patient years</th>
+          </tr>
+          <tr>
+              <td>0</td>
+              <td>1.13</td>
+          </tr>
+          <tr>
+              <td>1</td>
+              <td>1.02</td>
+          </tr>
+          <tr>
+              <td>2</td>
+              <td>1.88</td>
+          </tr>
+          <tr>
+              <td>3</td>
+              <td>3.74</td>
+          </tr>
+          <tr>
+              <td>4</td>
+              <td>8.70</td>
+          </tr>
+          <tr>
+              <td>5</td>
+              <td>12.5</td>
+          </tr>
+      </table> -->
+  </mat-card>
+</div>

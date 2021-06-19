@@ -54,8 +54,9 @@ th {
     border-color: #E4E4E4;
     background-color: #EFEFEF;
     color: #707070;
-    padding-left: 50px;
-    padding-right: 50px;
+    /* padding-left: 50px;
+    padding-right: 50px; */
+    text-align: center;
 }
 
 .radiobtn {

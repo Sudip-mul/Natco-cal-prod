@@ -16,10 +16,11 @@ export class Calculator4Component implements OnInit {
   score6: string = '';
   score7: string = '';
   score8: string = '';
+  stroke_risk: number = 0;
   score: number = 0;
-  risk_level: string = '';
-  throm_event_rate: string = '';
-  treat_recom: string = '';
+  risk_level: string = '-';
+  throm_event_rate: string = '-';
+  treat_recom: string = '-';
 
   constructor(public dialog: MatDialog) {}
 
@@ -42,9 +43,10 @@ export class Calculator4Component implements OnInit {
     this.formGroup.reset();
     // this.refscore = 0;
     this.score = 0;
-    this.risk_level = '';
-    this.throm_event_rate = '';
-    this.treat_recom = '';
+    this.risk_level = '-';
+    this.throm_event_rate = '-';
+    this.treat_recom = '-';
+    this.stroke_risk = 0;
   }
 
   ScoreSubmit() {
@@ -78,6 +80,39 @@ export class Calculator4Component implements OnInit {
         this.throm_event_rate = '3.0-5.0%';
         this.treat_recom = 'VKA with INR goal 2.0–3.0';
       }
+
+      if (this.score == 0)
+      {
+        this.stroke_risk = 0;
+      } else if (this.score == 1)
+      {
+        this.stroke_risk = 1.3;
+      } else if (this.score == 2)
+      {
+        this.stroke_risk = 2.2;
+      } else if (this.score == 3)
+      {
+        this.stroke_risk = 3.2;
+      } else if (this.score == 4)
+      {
+        this.stroke_risk = 4.0;
+      } else if (this.score == 5)
+      {
+        this.stroke_risk = 6.7;
+      } else if (this.score == 6)
+      {
+        this.stroke_risk = 9.8;
+      } else if (this.score == 7)
+      {
+        this.stroke_risk = 9.6;
+      } else if (this.score == 8)
+      {
+        this.stroke_risk = 6.7;
+      } else
+      {
+        this.stroke_risk = 15.2;
+      }
+
     } else {
       alert('Please fill all details');
     }

@@ -8,46 +8,7 @@
             HASBLED demonstrated better accuracy at predicting the risk of major bleeding. The HAS-BLED score was particularly useful when antiplatelet therapy was used alone or no antithrombotic therapy was used at all.
         </mat-card-content>
     </mat-card>
-    <!-- <mat-card class="patient_card">
-        <mat-card-title class="pat_header">Patient details</mat-card-title>
-        <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
-            <div class="row">
-                <div class="col-sm-6">
-                    <mat-form-field style="text-align: left; width: 100%;">
 
-                        <input matInput placeholder="Patient_ID(Optional)" name="patient_id" formControlName="patient_id">
-                    </mat-form-field>
-                    <mat-form-field style="text-align: left;width: 100%;">
-
-                        <input matInput placeholder="Name" name="name" formControlName="name" required>
-                    </mat-form-field>
-                    <mat-form-field style="text-align: left;width: 100%;">
-
-                        <input matInput placeholder="Age" name="age" formControlName="age" required>
-                    </mat-form-field>
-                </div>
-                <div class="col-sm-6">
-                    <mat-form-field style="text-align: left;width: 100%;">
-
-                        <input matInput placeholder="Gender" name="gender" formControlName="gender" required>
-                    </mat-form-field>
-                    <mat-form-field style="text-align: left;width: 100%;">
-
-                        <input matInput placeholder="City" name="city" formControlName="city" required>
-                    </mat-form-field>
-                    <mat-form-field style="text-align: left;width: 100%;">
-
-                        <input matInput placeholder="Blood pressure" name="bp" formControlName="bp" required>
-                    </mat-form-field>
-                </div>
-
-            </div>
-        </form>
-    </mat-card> -->
-    <!-- <div class="page_header">
-        Sample text about has bled calculator, sample text about calculator, sample text about calculator, sample text about calculator, sample text about calculator, sample text about calculator, sample text about calculator.
-      </div> -->
-    <!-- </div> -->
     <mat-card class="secondcard">
         <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
         <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
@@ -148,16 +109,18 @@
                     <span>Score: {{score}}</span>
                     
                  </p>  -->
-                <table>
-                    <tr class="res_table">
-                        <th>Has Bled Score</th>
-                        <th>Bleeds per 100 patient years</th>
-                    </tr>
-                    <tr>
-                        <td>{{score}}</td>
-                        <td>{{refscore}}</td>
-                    </tr>
-                </table>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr class="res_table">
+                            <th>Has Bled Score</th>
+                            <th>Bleeds per 100 patient years</th>
+                        </tr>
+                        <tr>
+                            <td>{{score}}</td>
+                            <td>{{refscore}}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </form>
 
