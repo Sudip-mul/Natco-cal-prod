@@ -137,62 +137,49 @@ export class Calculator5Component implements OnInit {
           this.score4 = 4;
         }
 
-        if (this.formGroup.value.score6 == 'No')
-        {
-          if (this.formGroup.value.score3 < 120)
-          {
+        if (this.formGroup.value.score6 == 'No') {
+          if (this.formGroup.value.score3 < 120) {
             this.score3 = -2;
           } else if (
             this.formGroup.value.score3 >= 120 &&
             this.formGroup.value.score3 <= 129
-          )
-          {
+          ) {
             this.score3 = 0;
           } else if (
             this.formGroup.value.score3 >= 130 &&
             this.formGroup.value.score3 <= 139
-          )
-          {
+          ) {
             this.score3 = 1;
           } else if (
             this.formGroup.value.score3 >= 140 &&
             this.formGroup.value.score3 <= 159
-          )
-          {
+          ) {
             this.score3 = 2;
-          } else
-          {
+          } else {
             this.score3 = 3;
           }
-        } else
-        {
-          if (this.formGroup.value.score3 < 120)
-          {
+        } else {
+          if (this.formGroup.value.score3 < 120) {
             this.score3 = 0;
           } else if (
             this.formGroup.value.score3 >= 120 &&
             this.formGroup.value.score3 <= 129
-          )
-          {
+          ) {
             this.score3 = 2;
           } else if (
             this.formGroup.value.score3 >= 130 &&
             this.formGroup.value.score3 <= 139
-          )
-          {
+          ) {
             this.score3 = 3;
           } else if (
             this.formGroup.value.score3 >= 140 &&
             this.formGroup.value.score3 <= 159
-          )
-          {
+          ) {
             this.score3 = 4;
-          } else
-          {
+          } else {
             this.score3 = 5;
           }
         }
-
 
         if (this.formGroup.value.score7 == 0) {
           this.score7 = 0;
@@ -294,35 +281,33 @@ export class Calculator5Component implements OnInit {
           this.score4 = 5;
         }
 
-        if (this.formGroup.value.score6 == 'No')
-        {
-        if (this.formGroup.value.score3 < 120) {
-          this.score3 = -3;
-        } else if (
-          this.formGroup.value.score3 >= 120 &&
-          this.formGroup.value.score3 <= 129
-        ) {
-          this.score3 = 0;
-        } else if (
-          this.formGroup.value.score3 >= 130 &&
-          this.formGroup.value.score3 <= 139
-        ) {
-          this.score3 = 1;
-        } else if (
-          this.formGroup.value.score3 >= 140 &&
-          this.formGroup.value.score3 <= 149
-        ) {
-          this.score3 = 2;
-        } else if (
-          this.formGroup.value.score3 >= 150 &&
-          this.formGroup.value.score3 <= 159
-        ) {
-          this.score3 = 4;
+        if (this.formGroup.value.score6 == 'No') {
+          if (this.formGroup.value.score3 < 120) {
+            this.score3 = -3;
+          } else if (
+            this.formGroup.value.score3 >= 120 &&
+            this.formGroup.value.score3 <= 129
+          ) {
+            this.score3 = 0;
+          } else if (
+            this.formGroup.value.score3 >= 130 &&
+            this.formGroup.value.score3 <= 139
+          ) {
+            this.score3 = 1;
+          } else if (
+            this.formGroup.value.score3 >= 140 &&
+            this.formGroup.value.score3 <= 149
+          ) {
+            this.score3 = 2;
+          } else if (
+            this.formGroup.value.score3 >= 150 &&
+            this.formGroup.value.score3 <= 159
+          ) {
+            this.score3 = 4;
+          } else {
+            this.score3 = 5;
+          }
         } else {
-          this.score3 = 5;
-        }
-        } else
-        {
           if (this.formGroup.value.score3 < 120) {
             this.score3 = -1;
           } else if (
@@ -348,9 +333,8 @@ export class Calculator5Component implements OnInit {
           } else {
             this.score3 = 7;
           }
-      }
+        }
 
-        
         if (this.formGroup.value.score7 == 0) {
           this.score7 = 0;
         } else {
@@ -374,7 +358,7 @@ export class Calculator5Component implements OnInit {
         // this.score6 +
         this.score7 +
         this.score8;
-      localStorage.setItem('cal5_score', JSON.stringify(this.score));
+      // localStorage.setItem('cal5_score', JSON.stringify(this.score));
 
       if (this.formGroup.value.score2 == 'Male') {
         if (this.score <= -3) {
@@ -519,6 +503,11 @@ export class Calculator5Component implements OnInit {
           this.cvd_risk = '>30';
           this.heart_age = '>80';
         }
+        let final_score = {
+          'CVD Risk for Women/Men (%)': this.cvd_risk,
+          'Heart Age/Vascular Age for Women/Men (years)': this.heart_age,
+        };
+        localStorage.setItem('cal5_score', JSON.stringify(final_score));
       }
     } else {
       alert('Please fill all details');

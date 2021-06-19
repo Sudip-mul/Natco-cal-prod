@@ -54,7 +54,7 @@ export class Calculator3Component implements OnInit {
         parseInt(this.formGroup.value.score6) +
         parseInt(this.formGroup.value.score7);
       console.log(this.score);
-      localStorage.setItem('cal3_score', JSON.stringify(this.score));
+      // localStorage.setItem('cal3_score', JSON.stringify(this.score));
 
       if (this.score == 0) {
         // this.refscore = 1.13;
@@ -70,6 +70,9 @@ export class Calculator3Component implements OnInit {
       } else {
         this.risk_cat = '7.2%';
       }
+
+      let final_score = { Score: this.score, 'Risk category': this.risk_cat };
+      localStorage.setItem('cal3_score', JSON.stringify(final_score));
     } else {
       alert('Please fill all details');
     }

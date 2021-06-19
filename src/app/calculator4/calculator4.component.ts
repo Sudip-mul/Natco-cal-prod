@@ -63,7 +63,7 @@ export class Calculator4Component implements OnInit {
         parseInt(this.formGroup.value.score7) +
         parseInt(this.formGroup.value.score8);
       console.log(this.score);
-      localStorage.setItem('cal4_score', JSON.stringify(this.score));
+      // localStorage.setItem('cal4_score', JSON.stringify(this.score));
 
       if (this.score == 0) {
         // this.refscore = 1.13;
@@ -81,38 +81,36 @@ export class Calculator4Component implements OnInit {
         this.treat_recom = 'VKA with INR goal 2.0–3.0';
       }
 
-      if (this.score == 0)
-      {
+      if (this.score == 0) {
         this.stroke_risk = 0;
-      } else if (this.score == 1)
-      {
+      } else if (this.score == 1) {
         this.stroke_risk = 1.3;
-      } else if (this.score == 2)
-      {
+      } else if (this.score == 2) {
         this.stroke_risk = 2.2;
-      } else if (this.score == 3)
-      {
+      } else if (this.score == 3) {
         this.stroke_risk = 3.2;
-      } else if (this.score == 4)
-      {
+      } else if (this.score == 4) {
         this.stroke_risk = 4.0;
-      } else if (this.score == 5)
-      {
+      } else if (this.score == 5) {
         this.stroke_risk = 6.7;
-      } else if (this.score == 6)
-      {
+      } else if (this.score == 6) {
         this.stroke_risk = 9.8;
-      } else if (this.score == 7)
-      {
+      } else if (this.score == 7) {
         this.stroke_risk = 9.6;
-      } else if (this.score == 8)
-      {
+      } else if (this.score == 8) {
         this.stroke_risk = 6.7;
-      } else
-      {
+      } else {
         this.stroke_risk = 15.2;
       }
 
+      let final_score = {
+        Score: this.score,
+        'Risk level/Adjusted Stroke Risk':
+          this.risk_level + '/' + this.stroke_risk,
+        'Thromboembolic event rate': this.throm_event_rate,
+        'Treatment Recommendations (ESC guidelines 2010)': this.treat_recom,
+      };
+      localStorage.setItem('cal4_score', JSON.stringify(final_score));
     } else {
       alert('Please fill all details');
     }

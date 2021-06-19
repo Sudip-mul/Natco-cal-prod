@@ -74,7 +74,7 @@ export class Calculator6Component implements OnInit {
       localStorage.setItem('cal6_detail', JSON.stringify(this.formGroup.value));
       this.score = this.score1 + this.score2 + this.score3;
       console.log(this.score);
-      localStorage.setItem('cal6_score', JSON.stringify(this.score));
+      // localStorage.setItem('cal6_score', JSON.stringify(this.score));
 
       if (this.score <= 3) {
         // this.refscore = 1.13;
@@ -90,6 +90,12 @@ export class Calculator6Component implements OnInit {
         this.risk_group = 'High';
         this.risk_critical = '57%';
       }
+      let final_score = {
+        'qCSI Score': this.score,
+        'Risk group	': this.risk_group,
+        'Risk of critical illness* at 24 hrs': this.risk_critical,
+      };
+      localStorage.setItem('cal6_score', JSON.stringify(final_score));
     } else {
       alert('Please fill all details');
     }
