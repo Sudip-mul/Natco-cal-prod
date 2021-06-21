@@ -1,147 +1,209 @@
 <div class="container-fluid page">
-    <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
+  <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
     <div class="page__content shadow p-3 position-relative"> -->
-    <mat-card>
-        <mat-card-title class="header">HAS-BLED Score</mat-card-title>
-        <mat-card-content class="content">
-            The HAS-BLED scores range from 0 to 9, with scores of ≥3 indicating high risk of bleeding, for which caution and regular review of the patient are recommended. In analyses among those patients receiving no antithrombotic therapy or antiplatelet therapy,
-            HASBLED demonstrated better accuracy at predicting the risk of major bleeding. The HAS-BLED score was particularly useful when antiplatelet therapy was used alone or no antithrombotic therapy was used at all.
-        </mat-card-content>
-    </mat-card>
+  <mat-card>
+    <mat-card-title class="header">HAS-BLED Score</mat-card-title>
+    <mat-card-content class="content">
+      The HAS-BLED scores range from 0 to 9, with scores of ≥3 indicating high
+      risk of bleeding, for which caution and regular review of the patient are
+      recommended. In analyses among those patients receiving no antithrombotic
+      therapy or antiplatelet therapy, HASBLED demonstrated better accuracy at
+      predicting the risk of major bleeding. The HAS-BLED score was particularly
+      useful when antiplatelet therapy was used alone or no antithrombotic
+      therapy was used at all.<sup>1, 2</sup>
+    </mat-card-content>
+  </mat-card>
 
-    <mat-card class="secondcard">
-        <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
-        <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p class="p-tag">
-                        <span>Hypertension</span>
+  <mat-card class="secondcard">
+    <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
+    <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
+      <div class="row">
+        <div class="col-sm-6">
+          <p class="p-tag">
+            <span>Hypertension</span>
 
-                        <span class="radiobtn"><mat-radio-group aria-label="Select an option" formControlName="score1">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
-                  </mat-radio-group></span>
-                    </p>
-                    <p class="p-tag">
-                        <span>Abnormal renal</span>
-                        <span class="radiobtn"><mat-radio-group aria-label="Select an option" formControlName="score2">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
-                  </mat-radio-group></span>
-                    </p>
-                    <p class="p-tag">
-                        <span>Liver function</span>
-                        <span class="radiobtn"><mat-radio-group aria-label="Select an option" formControlName="score3">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
-                  </mat-radio-group></span>
-                    </p>
-                    <p class="p-tag">
-                        <span>Stroke</span>
-                        <span class="radiobtn"><mat-radio-group aria-label="Select an option" formControlName="score4">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
-                  </mat-radio-group></span>
-                    </p>
-                    <p class="p-tag">
-                        <span>Bleeding</span>
-                        <span class="radiobtn"><mat-radio-group aria-label="Select an option" formControlName="score5">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
-                  </mat-radio-group></span>
-                    </p>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score1"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Abnormal renal</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score2"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Liver function</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score3"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Stroke</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score4"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Bleeding</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score5"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <p class="p-tag">
+            <span>Labile INRs </span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score6"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Elderly</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score7"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Drugs</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score8"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+          <p class="p-tag">
+            <span>Alcohol</span>
+            <span class="radiobtn"
+              ><mat-radio-group
+                aria-label="Select an option"
+                formControlName="score9"
+              >
+                <mat-radio-button value="1">Yes</mat-radio-button>
+                <mat-radio-button value="0">No</mat-radio-button>
+              </mat-radio-group></span
+            >
+          </p>
+        </div>
+      </div>
 
-
-                </div>
-                <div class="col-sm-6">
-                    <p class="p-tag">
-                        <span>Labile INRs </span>
-                        <span class="radiobtn"><mat-radio-group aria-label="Select an option" formControlName="score6">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
-                  </mat-radio-group></span>
-                    </p>
-                    <p class="p-tag">
-                        <span>Elderly</span>
-                        <span class="radiobtn"><mat-radio-group aria-label="Select an option" formControlName="score7">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
-                  </mat-radio-group></span>
-                    </p>
-                    <p class="p-tag">
-                        <span>Drugs</span>
-                        <span class="radiobtn"><mat-radio-group aria-label="Select an option" formControlName="score8">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
-                  </mat-radio-group></span>
-                    </p>
-                    <p class="p-tag">
-                        <span>Alcohol</span>
-                        <span class="radiobtn"><mat-radio-group aria-label="Select an option" formControlName="score9">
-                    <mat-radio-button value="1">Yes</mat-radio-button>
-                    <mat-radio-button value="0">No</mat-radio-button>
-                  </mat-radio-group></span>
-                    </p>
-
-
-                </div>
-            </div>
-
-            <div>
-                <p class="p-tag">
-                    <span><button mat-stroked-button type="submit" >Submit</button></span>
-                    <span class="clear-btn"><span class="clear" mat-stroked-button (click)="reset()">Clear</span></span>
-                </p>
-                <hr>
-                <div>
-                    <p class="p-tag box">
-                        HAS-BLED 5 Hypertension, Abnormal renal/liver function, Stroke, Bleeding history or predisposition, Labile international normalized ratio, Elderly (≥65 years), Drugs/alcohol concomitantly; INR = international normalized ratio.
-                        <span class="i-icon">
-                            <mat-icon (click)="openDialog()">error_outline</mat-icon>
-                            </span>
-                    </p>
-
-
-                </div>
-                <hr>
-                <p class="inter-head">Interpretation</p>
-                <!-- <p class="p-tag">
+      <div>
+        <p class="p-tag">
+          <span><button mat-stroked-button type="submit">Submit</button></span>
+          <span class="clear-btn"
+            ><span class="clear" mat-stroked-button (click)="reset()"
+              >Clear</span
+            ></span
+          >
+        </p>
+        <hr />
+        <div>
+          <p class="p-tag box">
+            HAS-BLED 5 Hypertension, Abnormal renal/liver function, Stroke,
+            Bleeding history or predisposition, Labile international normalized
+            ratio, Elderly (≥65 years), Drugs/alcohol concomitantly; INR =
+            international normalized ratio.
+            <span class="i-icon">
+              <mat-icon (click)="openDialog()">error_outline</mat-icon>
+            </span>
+          </p>
+        </div>
+        <hr />
+        <p class="inter-head">Interpretation</p>
+        <!-- <p class="p-tag">
                     <span>Score: {{score}}</span>
                     
                  </p>  -->
-                <div class="table-responsive">
-                    <table class="table">
-                        <tr class="res_table">
-                            <th>Has Bled Score</th>
-                            <th>Bleeds per 100 patient years</th>
-                        </tr>
-                        <tr>
-                            <td>{{score}}</td>
-                            <td>{{refscore}}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </form>
-
-        <div class="disclaimer">
-            <p class="disc_head">Disclaimer: </p>
-            <span class="disc_def">HAS-BLED has been validated for warfarin, but not for the new anticoagulants. Calculations alone should never dictate patient care, and are no substitute for professional judgement.</span>
+        <div class="table-responsive">
+          <table class="table">
+            <tr class="res_table">
+              <th>Has Bled Score</th>
+              <th>Bleeds per 100 patient years</th>
+            </tr>
+            <tr>
+              <td>{{ score }}</td>
+              <td>{{ refscore }}</td>
+            </tr>
+          </table>
         </div>
+      </div>
+    </form>
 
-        <div class="reference">
-            <p class="ref_head">References:</p>
-            <ul class="ref_def">
-                <li>Pisters R, Lane DA, Nieuwlaat R, de Vos CB, Crijns HJGM, Lip GYH. A novel user-friendly score (HAS-BLED) to assess 1-year risk of major bleeding in patients with atrial fibrillation: the Euro Heart Survey. Chest. 2010;138(5):1093-1100.
-                </li>
-                <li>Lane DA, Lip GYH. Use of the CHA(2)DS(2)-VASc and HAS-BLED scores to aid decision making for thromboprophylaxis in nonvalvular atrial fibrillation. Circulation. 2012;126(7):860-865.</li>
-            </ul>
-        </div>
+    <div class="disclaimer">
+      <p class="disc_head">Disclaimer:</p>
+      <i
+        ><span class="disc_def"
+          >HAS-BLED has been validated for warfarin, but not for the new
+          anticoagulants. Calculations alone should never dictate patient care,
+          and are no substitute for professional judgement.</span
+        ></i
+      >
+    </div>
 
+    <div class="reference">
+      <p class="ref_head">References:</p>
+      <ol class="ref_def">
+        <li>
+          Pisters R, Lane DA, Nieuwlaat R, de Vos CB, Crijns HJGM, Lip GYH. A
+          novel user-friendly score (HAS-BLED) to assess 1-year risk of major
+          bleeding in patients with atrial fibrillation: the Euro Heart Survey.
+          <i>Chest</i>. 2010;138(5):1093-1100.
+        </li>
+        <li>
+          Lane DA, Lip GYH. Use of the CHA(2)DS(2)-VASc and HAS-BLED scores to
+          aid decision making for thromboprophylaxis in nonvalvular atrial
+          fibrillation. <i>Circulation</i>. 2012;126(7):860-865.
+        </li>
+      </ol>
+    </div>
 
-
-
-        <!-- <table>
+    <!-- <table>
         <tr class="res_table">
             <th>Has Bled Score</th>
             <th>Bleeds per 100 patient years</th>
@@ -171,5 +233,5 @@
             <td>12.5</td>
         </tr>
     </table> -->
-    </mat-card>
+  </mat-card>
 </div>

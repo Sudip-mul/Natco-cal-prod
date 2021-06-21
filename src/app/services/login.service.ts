@@ -10,16 +10,20 @@ import { environment } from 'src/environments/environment.prod';
 export class LoginService {
   constructor(private http: HttpClient) {}
 
-  getAll() {
+  getAll(username: string, password: string) {
     return this.http
-      .post(
-        environment.apiurl + 'insert.php',
-        { username: 'test', password: '123456' },
-        {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-        }
+      .get(
+        environment.apiurl +
+          'insert.php?username=' +
+          username +
+          '&password=' +
+          password +
+          '&token=HWV8joY1OZYliRSLrJ0Spk5fiasqAWP7'
+        // {
+        //   headers: {
+        //     'Content-Type': 'application/x-www-form-urlencoded',
+        //   },
+        // }
       )
       .map((data) => {
         // console.log(result)

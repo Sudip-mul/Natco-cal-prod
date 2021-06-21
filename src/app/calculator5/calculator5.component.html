@@ -1,24 +1,33 @@
 <div class="container-fluid page">
-    <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
+  <!-- <div class="d-flex page__box p-3 mt-2">Has Bled Calculator</div>
       <div class="page__content shadow p-3 position-relative"> -->
-    <mat-card>
-        <mat-card-title class="header">Cardiovascular Disease (10-year risk) calculator</mat-card-title>
-        <mat-card-content class="content">
-            Framingham investigators formulated a general CVD risk function several years ago. Using a multivariable-logistic regression model, they reported that an algorithm that identified persons at high risk of atherosclerotic CVD in general also was effective
-            for identifying persons at risk for each of the specific events, including CHD, stroke, intermittent claudication, and heart failure. A sex-specific multivariable risk factor algorithm can be conveniently used to assess general CVD risk and
-            risk of individual CVD events (coronary, cerebrovascular, and peripheral arterial disease and heart failure). The estimated absolute CVD event rates can be used to quantify risk and to guide preventive care.
-        </mat-card-content>
-    </mat-card>
+  <mat-card>
+    <mat-card-title class="header"
+      >Cardiovascular Disease (10-year risk) calculator</mat-card-title
+    >
+    <mat-card-content class="content">
+      Framingham investigators formulated a general CVD risk function several
+      years ago. Using a multivariable-logistic regression model, they reported
+      that an algorithm that identified persons at high risk of atherosclerotic
+      CVD in general also was effective for identifying persons at risk for each
+      of the specific events, including CHD, stroke, intermittent claudication,
+      and heart failure. A sex-specific multivariable risk factor algorithm can
+      be conveniently used to assess general CVD risk and risk of individual CVD
+      events (coronary, cerebrovascular, and peripheral arterial disease and
+      heart failure). The estimated absolute CVD event rates can be used to
+      quantify risk and to guide preventive care.
+    </mat-card-content>
+  </mat-card>
 
-    <mat-card class="secondcard">
-        <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
-        <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p class="p-tag">
-                        <span>Age (years)</span>
+  <mat-card class="secondcard">
+    <!-- <button class="patient" (click)="openpatient()">Patient detail</button> -->
+    <form [formGroup]="formGroup" (ngSubmit)="ScoreSubmit()">
+      <div class="row">
+        <div class="col-sm-6">
+          <p class="p-tag">
+            <span>Age (years)</span>
 
-                        <span class="radiobtn">
+            <span class="radiobtn">
               <input
                 class="inputbox"
                 matInput
@@ -27,10 +36,18 @@
                 formControlName="score1"
               />
             </span>
-                    </p>
-                    <p class="p-tag">
-                        <span>HDL Chol</span>
-                        <span class="radiobtn">
+          </p>
+          <p class="p-tag">
+            <span
+              >HDL Cholesterol (mg/dL)
+              <sup class="dot"
+                >i
+                <div class="tool-text">
+                  To get from SI units (mmol/L) to mg/dL multiply by 38.67.
+                </div></sup
+              ></span
+            >
+            <span class="radiobtn">
               <input
                 class="inputbox"
                 matInput
@@ -39,11 +56,11 @@
                 formControlName="score5"
               />
             </span>
-                    </p>
+          </p>
 
-                    <p class="p-tag">
-                        <span>Systolic Blood Pressure (mmHg)</span>
-                        <span class="radiobtn">
+          <p class="p-tag">
+            <span>Systolic Blood Pressure (mmHg)</span>
+            <span class="radiobtn">
               <input
                 class="inputbox"
                 matInput
@@ -52,10 +69,18 @@
                 formControlName="score3"
               />
             </span>
-                    </p>
-                    <p class="p-tag">
-                        <span>Total Chol (mg/dL)</span>
-                        <span class="radiobtn">
+          </p>
+          <p class="p-tag">
+            <span
+              >Total Cholesterol (mg/dL)
+              <sup class="dot"
+                >i
+                <div class="tool-text">
+                  To get from SI units (mmol/L) to mg/dL multiply by 38.67.
+                </div></sup
+              ></span
+            >
+            <span class="radiobtn">
               <input
                 class="inputbox"
                 matInput
@@ -64,50 +89,60 @@
                 formControlName="score4"
               />
             </span>
-                    </p>
-                </div>
-                <div class="col-sm-6">
-                    <p class="p-tag">
-                        <span>Gender</span>
-                        <span class="radiobtn"><mat-radio-group
+          </p>
+        </div>
+        <div class="col-sm-6">
+          <p class="p-tag">
+            <span>Gender</span>
+            <span class="radiobtn"
+              ><mat-radio-group
                 aria-label="Select an option"
                 formControlName="score2"
               >
-                <mat-radio-button value="Male">Male</mat-radio-button>
-                <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="Men">Male</mat-radio-button>
+                <mat-radio-button value="Women">Female</mat-radio-button>
               </mat-radio-group></span
             >
           </p>
           <p class="p-tag">
             <span>On BP medication</span>
-                        <span class="radiobtn"><mat-radio-group
+            <span class="radiobtn"
+              ><mat-radio-group
                 aria-label="Select an option"
                 formControlName="score6"
               >
                 <mat-radio-button value="Yes">Yes</mat-radio-button>
-                <mat-radio-button value="No">No</mat-radio-button>
+                <mat-radio-button class="radio-space" value="No"
+                  >No</mat-radio-button
+                >
               </mat-radio-group></span
             >
           </p>
           <p class="p-tag">
             <span>Cigarette smoker</span>
-                        <span class="radiobtn"><mat-radio-group
+            <span class="radiobtn"
+              ><mat-radio-group
                 aria-label="Select an option"
                 formControlName="score7"
               >
                 <mat-radio-button value="1">Yes</mat-radio-button>
-                <mat-radio-button value="0">No</mat-radio-button>
+                <mat-radio-button class="radio-space" value="0"
+                  >No</mat-radio-button
+                >
               </mat-radio-group></span
             >
           </p>
           <p class="p-tag">
             <span>Diabetes present</span>
-                        <span class="radiobtn"><mat-radio-group
+            <span class="radiobtn"
+              ><mat-radio-group
                 aria-label="Select an option"
                 formControlName="score8"
               >
                 <mat-radio-button value="1">Yes</mat-radio-button>
-                <mat-radio-button value="0">No</mat-radio-button>
+                <mat-radio-button class="radio-space" value="0"
+                  >No</mat-radio-button
+                >
               </mat-radio-group></span
             >
           </p>
@@ -117,7 +152,8 @@
       <div>
         <p class="p-tag">
           <span><button mat-stroked-button type="submit">Submit</button></span>
-                        <span class="clear-btn"><span class="clear" mat-stroked-button (click)="reset()"
+          <span class="clear-btn"
+            ><span class="clear" mat-stroked-button (click)="reset()"
               >Clear</span
             ></span
           >
@@ -134,34 +170,62 @@
                     </p>
                 </div>
                 <hr /> -->
-                <p class="inter-head">Interpretation</p>
-                <!-- <p class="p-tag">
+        <p class="inter-head">Interpretation</p>
+        <!-- <p class="p-tag">
                       <span>Score: {{score}}</span>
                       
                    </p>  -->
-                <div class="table-responsive">
-                    <table class="table">
-                        <tr class="res_table">
-                            <th>CVD Risk for Women/Men (%)</th>
-                            <th>Heart Age/Vascular Age for Women/Men (years)</th>
-                        </tr>
-                        <tr>
-                            <td>{{ cvd_risk }}</td>
-                            <td>{{ heart_age }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </form>
+        <div class="table-responsive">
+          <table class="table">
+            <tr class="res_table">
+              <th>CVD Risk for {{ patgender }}</th>
+              <th>Heart Age/Vascular Age for {{ patgender }}</th>
+            </tr>
+            <tr>
+              <td>{{ cvd_risk }}%</td>
+              <td>{{ heart_age }} years</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </form>
 
-        <!-- <div class="disclaimer">
+    <!-- <div class="disclaimer">
               <p class="disc_head">Disclaimer: </p>
               <span class="disc_def">HAS-BLED has been validated for warfarin, but not for the new anticoagulants. Calculations alone should never dictate patient care, and are no substitute for professional judgement.</span>
           </div> -->
 
-        <div class="disclaimer">
-            <p class="disc_head">Disclaimer:</p>
-            <span class="disc_def">Calculations alone should never dictate patient care, and are no
+    <div class="reference">
+      <p class="ref_head">Notes:</p>
+      <ul>
+        <li class="disc_def">
+          This calculator is intended for men with no prior history of
+          cardiovascular disease (see next bullet). It helps predict the risk
+          over 10 years of heart attack, stroke, or death from cardiovascular
+          disease.
+        </li>
+        <li class="disc_def">
+          A history of cardiovascular disease means a person has (or had in the
+          past) blocked arteries, a heart attack, a stroke, or heart failure.
+        </li>
+        <li class="disc_def">
+          Your doctor can help you understand your personal risk and how to
+          interpret your results. The calculator may overestimate or
+          underestimate your risk; it cannot tell for sure whether you will have
+          a cardiovascular event.
+        </li>
+        <li class="disc_def">
+          Systolic blood pressure is the top number (eg, 120 if blood pressure
+          is 120/80).
+        </li>
+      </ul>
+      <p class="disc_def">HDL: high-density lipoprotein.</p>
+    </div>
+
+    <div class="disclaimer">
+      <p class="disc_head">Disclaimer:</p>
+      <span class="disc_def"
+        >Calculations alone should never dictate patient care, and are no
         substitute for professional judgement.</span
       >
     </div>
@@ -171,7 +235,7 @@
       <p class="ref_def">
         D'Agostino RB Sr, Vasan RS, Pencina MJ, et al. General cardiovascular
         risk profile for use in primary care: the Framingham Heart Study.
-        Circulation. 2008;117(6):743-753.
+        <i>Circulation</i>. 2008;117(6):743-753.
       </p>
     </div>
 

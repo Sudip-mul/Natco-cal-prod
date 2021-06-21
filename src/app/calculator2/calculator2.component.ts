@@ -65,7 +65,7 @@ export class Calculator2Component implements OnInit {
         // this.refscore = 1.13;
         this.risk_cat = 'Low';
         this.bleeding_per = '0.76%';
-        this.treatment_rec = 'git pull origin master';
+        this.treatment_rec = 'Reasonable to start warfarin.';
       } else if (this.score == 4) {
         this.risk_cat = 'Intermediate';
         this.bleeding_per = '2.62%';

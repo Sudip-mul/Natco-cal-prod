@@ -29,14 +29,13 @@ export class LoginComponent implements OnInit {
           'welcome to dashboard, your email is = ' + this.formGroup.value.email
         );
 
-        let Body: any;
-        Body = {
-          username: this.formGroup.value.email,
-          password: this.formGroup.value.password,
-        };
-        this.login.getAll().subscribe((res) => {
-          console.log(res);
-        });
+        // username= this.formGroup.value.email,
+        // password= this.formGroup.value.password,
+        this.login
+          .getAll(this.formGroup.value.email, this.formGroup.value.password)
+          .subscribe((res) => {
+            console.log(res);
+          });
 
         this.route.navigate(['./calculator1']);
         // alert("welcome to dashboard")

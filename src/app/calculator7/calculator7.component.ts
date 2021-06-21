@@ -31,7 +31,7 @@ export class Calculator7Component implements OnInit {
   formGroup = new FormGroup({
     score1: new FormControl('', [Validators.required]),
     score2: new FormControl('', [Validators.required]),
-    score3: new FormControl({ disabled: true }, [Validators.required]),
+    score3: new FormControl({ disabled: true }),
     score4: new FormControl('', [Validators.required]),
   });
 
@@ -87,87 +87,105 @@ export class Calculator7Component implements OnInit {
           'If a patient requires anticoagulation after the procedure, Argatroban Injection may be continued, but at a rate of 2 mcg/kg/min and adjusted as needed to maintain the aPTT in the desired range.';
       }
 
-      if (
-        this.formGroup.value.score2 == 'Patients with HIT' ||
-        (this.formGroup.value.score2 == 'Patients Undergoing PCI' &&
-          this.formGroup.value.score4 == 'Yes')
-      ) {
+      if (this.formGroup.value.score4 == 'Yes') {
         this.bolus_dose = 0;
         this.bolus_vol = 0;
         this.infusion_dose = 0.5 * parseInt(this.formGroup.value.score1);
         this.infusion_dose = Math.round(this.infusion_dose);
+        console.log(this.infusion_dose);
         // console.log(this.infusion_dose);
         // this.infusion_dose.toFixed();
         this.infusion_rate =
-          ((60 * 0.5 * parseInt(this.formGroup.value.score1) * 250) / 1000) *
-          250;
+          (60 * 0.5 * parseInt(this.formGroup.value.score1) * 250) /
+          (1000 * 250);
         this.infusion_rate = Math.round(this.infusion_rate);
         // this.infusion_rate.toFixed();
       } else {
-        this.bolus_dose = 0;
-        this.bolus_vol = 0;
-        this.infusion_dose = 2 * parseInt(this.formGroup.value.score1);
-        this.infusion_dose = Math.round(this.infusion_dose);
-        // console.log(this.infusion_dose);
-        // this.infusion_dose.toFixed();
-        this.infusion_rate =
-          ((60 * 2 * parseInt(this.formGroup.value.score1) * 250) / 1000) * 250;
-        this.infusion_rate = Math.round(this.infusion_rate);
+        if (this.formGroup.value.score2 == 'Patients with HIT') {
+          this.bolus_dose = 0;
+          this.bolus_vol = 0;
+          this.infusion_dose = 2 * parseInt(this.formGroup.value.score1);
+          this.infusion_dose = Math.round(this.infusion_dose);
+          // console.log(this.infusion_dose);
+          // this.infusion_dose.toFixed();
+          this.infusion_rate =
+            (60 * 2 * parseInt(this.formGroup.value.score1) * 250) /
+            (1000 * 250);
+          this.infusion_rate = Math.round(this.infusion_rate);
+        } else if (
+          this.formGroup.value.score2 == 'Patients Undergoing PCI' &&
+          this.formGroup.value.score3 >= 300 &&
+          this.formGroup.value.score3 <= 450
+        ) {
+          this.bolus_dose = 350 * parseInt(this.formGroup.value.score1);
+
+          this.bolus_vol = this.bolus_dose / 1000;
+          this.bolus_dose = Math.round(this.bolus_dose);
+          this.bolus_vol = Math.round(this.bolus_vol);
+          this.infusion_dose = 25 * parseInt(this.formGroup.value.score1);
+          this.infusion_dose = Math.round(this.infusion_dose);
+          // console.log(this.infusion_dose);
+          // this.infusion_dose.toFixed();
+          this.infusion_rate =
+            (60 * 25 * parseInt(this.formGroup.value.score1) * 250) /
+            (1000 * 250);
+          this.infusion_rate = Math.round(this.infusion_rate);
+        } else if (
+          this.formGroup.value.score2 == 'Patients Undergoing PCI' &&
+          this.formGroup.value.score3 < 300
+        ) {
+          this.bolus_dose = 30 * parseInt(this.formGroup.value.score1);
+          this.bolus_vol = this.bolus_dose / 1000;
+          this.bolus_dose = Math.round(this.bolus_dose);
+          this.bolus_vol = Math.round(this.bolus_vol);
+          this.infusion_dose = 30 * parseInt(this.formGroup.value.score1);
+          this.infusion_dose = Math.round(this.infusion_dose);
+          // console.log(this.infusion_dose);
+          // this.infusion_dose.toFixed();
+          this.infusion_rate =
+            (60 * 30 * parseInt(this.formGroup.value.score1) * 250) /
+            (1000 * 250);
+          this.infusion_rate = Math.round(this.infusion_rate);
+        } else if (
+          this.formGroup.value.score2 == 'Patients Undergoing PCI' &&
+          this.formGroup.value.score3 > 450
+        ) {
+          this.bolus_dose = 0;
+          this.bolus_vol = 0;
+          // this.bolus_dose = Math.round(this.bolus_dose)
+          // this.bolus_vol = Math.round(this.bolus_vol)
+          this.infusion_dose = 15 * parseInt(this.formGroup.value.score1);
+          this.infusion_dose = Math.round(this.infusion_dose);
+          // console.log(this.infusion_dose);
+          // this.infusion_dose.toFixed();
+          this.infusion_rate =
+            (60 * 15 * parseInt(this.formGroup.value.score1) * 250) /
+            (1000 * 250);
+          this.infusion_rate = Math.round(this.infusion_rate);
+        } else {
+          alert(
+            'Please fill Target ACT (sec) as you have selected Patient Undergoing PCI'
+          );
+        }
       }
 
-      if (
-        this.formGroup.value.score2 == 'Patients Undergoing PCI' &&
-        this.formGroup.value.score3 > 300 &&
-        this.formGroup.value.score3 < 400 &&
-        this.formGroup.value.score4 == 'No'
-      ) {
-        this.bolus_dose = 350 * parseInt(this.formGroup.value.score1);
-
-        this.bolus_vol = this.bolus_dose / 1000;
-        this.bolus_dose = Math.round(this.bolus_dose);
-        this.bolus_vol = Math.round(this.bolus_vol);
-        this.infusion_dose = 25 * parseInt(this.formGroup.value.score1);
-        this.infusion_dose = Math.round(this.infusion_dose);
-        // console.log(this.infusion_dose);
-        // this.infusion_dose.toFixed();
-        this.infusion_rate =
-          ((60 * 25 * parseInt(this.formGroup.value.score1) * 250) / 1000) *
-          250;
-        this.infusion_rate = Math.round(this.infusion_rate);
-      } else if (
-        this.formGroup.value.score2 == 'Patients Undergoing PCI' &&
-        this.formGroup.value.score3 < 300 &&
-        this.formGroup.value.score4 == 'No'
-      ) {
-        this.bolus_dose = 30 * parseInt(this.formGroup.value.score1);
-        this.bolus_vol = this.bolus_dose / 1000;
-        this.bolus_dose = Math.round(this.bolus_dose);
-        this.bolus_vol = Math.round(this.bolus_vol);
-        this.infusion_dose = 30 * parseInt(this.formGroup.value.score1);
-        this.infusion_dose = Math.round(this.infusion_dose);
-        // console.log(this.infusion_dose);
-        // this.infusion_dose.toFixed();
-        this.infusion_rate =
-          ((60 * 30 * parseInt(this.formGroup.value.score1) * 250) / 1000) *
-          250;
-        this.infusion_rate = Math.round(this.infusion_rate);
+      let finaldose: any;
+      if (this.bolus_dose == 0) {
+        finaldose = '-';
       } else {
-        this.bolus_dose = 0;
-        this.bolus_vol = 0;
-        // this.bolus_dose = Math.round(this.bolus_dose)
-        // this.bolus_vol = Math.round(this.bolus_vol)
-        this.infusion_dose = 15 * parseInt(this.formGroup.value.score1);
-        this.infusion_dose = Math.round(this.infusion_dose);
-        // console.log(this.infusion_dose);
-        // this.infusion_dose.toFixed();
-        this.infusion_rate =
-          ((60 * 15 * parseInt(this.formGroup.value.score1) * 250) / 1000) *
-          250;
-        this.infusion_rate = Math.round(this.infusion_rate);
+        finaldose = this.bolus_dose;
       }
+
+      let finalvolume: any;
+      if (this.bolus_vol == 0) {
+        finalvolume = '-';
+      } else {
+        finalvolume = this.bolus_vol;
+      }
+
       let final_score = {
-        'Bolus dose': this.bolus_dose,
-        'Bolus Volume (mL)': this.bolus_vol,
+        'Bolus dose': finaldose,
+        'Bolus Volume (mL)': finalvolume,
         'Continuous Infusion Dose (mcg/min)': this.infusion_dose,
         'Continuous Infusion Rate (mL/hr)': this.infusion_rate,
       };

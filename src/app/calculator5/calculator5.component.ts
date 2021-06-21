@@ -19,6 +19,7 @@ export class Calculator5Component implements OnInit {
   score: number = 0;
   cvd_risk: string = '-';
   heart_age: string = '-';
+  patgender: string = 'Men/Women';
 
   constructor(public dialog: MatDialog) {}
 
@@ -43,12 +44,13 @@ export class Calculator5Component implements OnInit {
     this.score = 0;
     this.cvd_risk = '-';
     this.heart_age = '-';
+    this.patgender = 'Men/Women';
   }
 
   ScoreSubmit() {
     if (this.formGroup.valid) {
       console.log(this.formGroup.value.score1);
-      if (this.formGroup.value.score2 == 'Male') {
+      if (this.formGroup.value.score2 == 'Men') {
         if (this.formGroup.value.score1 <= 34) {
           this.score1 = 0;
         } else if (
@@ -360,7 +362,9 @@ export class Calculator5Component implements OnInit {
         this.score8;
       // localStorage.setItem('cal5_score', JSON.stringify(this.score));
 
-      if (this.formGroup.value.score2 == 'Male') {
+      this.patgender = this.formGroup.value.score2;
+
+      if (this.formGroup.value.score2 == 'Men') {
         if (this.score <= -3) {
           // this.refscore = 1.13;
           this.cvd_risk = '<1';

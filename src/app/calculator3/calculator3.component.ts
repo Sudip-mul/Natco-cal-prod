@@ -67,8 +67,10 @@ export class Calculator3Component implements OnInit {
         this.risk_cat = '1.7%';
       } else if (this.score == 4) {
         this.risk_cat = '2.9%';
-      } else {
+      } else if (this.score >= 5 && this.score <= 10) {
         this.risk_cat = '7.2%';
+      } else {
+        this.risk_cat = 'More than 7.2%';
       }
 
       let final_score = { Score: this.score, 'Risk category': this.risk_cat };
