@@ -12,6 +12,8 @@ export class Calculator6Component implements OnInit {
   score2: number = 0;
   score3: number = 0;
   score: number = 0;
+  imageurl: any = 'assets/image/g1.jpg';
+
   risk_group: string = '-';
   risk_critical: string = '-';
 
@@ -90,6 +92,17 @@ export class Calculator6Component implements OnInit {
         this.risk_group = 'High';
         this.risk_critical = '57%';
       }
+
+      if (this.score < 3) {
+        this.imageurl = 'assets/image/first.jpg';
+      } else if (this.score >= 3 && this.score < 6) {
+        this.imageurl = 'assets/image/second.jpg';
+      } else if (this.score >= 6 && this.score < 9) {
+        this.imageurl = 'assets/image/third.jpg';
+      } else if (this.score >= 9) {
+        this.imageurl = 'assets/image/fourth.jpg';
+      }
+
       let final_score = {
         'qCSI Score': this.score,
         'Risk group	': this.risk_group,

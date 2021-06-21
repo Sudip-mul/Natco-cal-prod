@@ -1,24 +1,25 @@
+.body {
+  font-family: poppins;
+}
+
 mat-toolbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 mat-icon {
-    vertical-align: middle;
-    color: #818E94;
+  vertical-align: middle;
+  color: #818e94;
 }
-
 
 /* .justify-content-between {
     justify-content: space-between !important;
 } */
 
-
 /* ul.li {
       list-style: none;
     } */
-
 
 /* button {
         outline: none;
@@ -27,54 +28,53 @@ mat-icon {
     } */
 
 mat-toolbar {
-    background: #f7f7f7;
+  background: #f7f7f7;
 }
 
 .example-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 button.repbtn {
-    border: 1px solid #8080803d;
-    background: #005baa;
-    color: #fff;
-    /* float: right !important; */
-    /* margin-left: 235%; */
-    font-size: 15px;
-    margin-right: 1%;
-    border-radius: 4px;
-    padding: 0px 16px 0px 16px;
+  border: 1px solid #8080803d;
+  background: #005baa;
+  color: #fff;
+  /* float: right !important; */
+  /* margin-left: 235%; */
+  font-size: 15px;
+  margin-right: 1%;
+  border-radius: 4px;
+  padding: 0px 16px 0px 16px;
 }
 
 button.patbtn {
-    border: 1px solid #8080803d;
-    background: #005baa;
-    color: #fff;
-    /* float: right !important; */
-    /* margin-left: 235%; */
-    font-size: 15px;
-    margin-right: 1%;
-    border-radius: 4px;
-    padding: 0px 16px 0px 16px;
+  border: 1px solid #8080803d;
+  background: #005baa;
+  color: #fff;
+  /* float: right !important; */
+  /* margin-left: 235%; */
+  font-size: 15px;
+  margin-right: 1%;
+  border-radius: 4px;
+  padding: 0px 16px 0px 16px;
 }
 
 button.clrbtn {
-    border: 1px solid #8080803d;
-    background-color: #ee1e24;
-    color: #fff;
-    /* float: right !important; */
-    /* margin-left: 235%; */
-    font-size: 15px;
-    margin-right: 1%;
-    border-radius: 4px;
-    padding: 0px 16px 0px 16px;
+  border: 1px solid #8080803d;
+  background-color: #ee1e24;
+  color: #fff;
+  /* float: right !important; */
+  /* margin-left: 235%; */
+  font-size: 15px;
+  margin-right: 1%;
+  border-radius: 4px;
+  padding: 0px 16px 0px 16px;
 }
 
 .logout {
-    border: 0px !important;
-    background-color: white;
+  border: 0px !important;
+  background-color: white;
 }
-
 
 /* .user-image {
     border-radius: 50%;
@@ -87,20 +87,20 @@ button.clrbtn {
     } */
 
 @media screen and (max-width: 768px) {
-    .mat-icon-button {
-        margin-left: -12px;
-        margin-right: 10px;
-    }
-    button.repbtn {
-        font-size: 14px;
-        padding: 0px 3px 0px 3px;
-    }
-    button.patbtn {
-        font-size: 14px;
-        padding: 0px 3px 0px 3px;
-    }
-    button.clrbtn {
-        font-size: 14px;
-        padding: 0px 3px 0px 3px;
-    }
+  .mat-icon-button {
+    margin-left: -12px;
+    margin-right: 10px;
+  }
+  button.repbtn {
+    font-size: 14px;
+    padding: 0px 3px 0px 3px;
+  }
+  button.patbtn {
+    font-size: 14px;
+    padding: 0px 3px 0px 3px;
+  }
+  button.clrbtn {
+    font-size: 14px;
+    padding: 0px 3px 0px 3px;
+  }
 }

@@ -202,18 +202,21 @@ export class HeaderComponent implements OnInit {
   }
 
   maintitle() {
+    this.doc.setFont('Calibri');
     this.doc.setFontSize(18);
-    this.doc.setFont('bold');
+    // this.doc.setFont(undefined, 'bold');
     this.doc.setTextColor(112, 112, 112);
   }
 
   subtitles() {
+    this.doc.setFont('Calibri');
     this.doc.setFontSize(15);
-    this.doc.setFont('bold');
+    // this.doc.setFont('bold');
     this.doc.setTextColor(0, 91, 170);
   }
 
   textinside() {
+    this.doc.setFont('Calibri');
     this.doc.setFontSize(10);
     this.doc.setFont('normal');
     this.doc.setTextColor(112, 112, 112);
@@ -253,9 +256,20 @@ export class HeaderComponent implements OnInit {
     this.doc.setDrawColor(0, 91, 170);
     this.doc.line(40, this.H1, 550, this.H1);
   }
+
+  drawmargin() {
+    this.doc.setFont('Calibri');
+    this.doc.setFontSize(10);
+    this.doc.setFont('normal');
+    this.doc.setDrawColor(112, 112, 112);
+    this.doc.rect(5, 5, 585, 830, 'S');
+    this.doc.rect(7, 7, 581, 826, 'S');
+  }
+
   checkpage() {
     if (this.H1 >= 760) {
       this.doc.addPage();
+      this.drawmargin();
       this.H1 = 40;
     }
   }
@@ -280,6 +294,9 @@ export class HeaderComponent implements OnInit {
     if (localStorage.getItem('patient_data') != null) {
       this.maintitle();
       this.doc = new jspdf('p', 'pt', 'a4');
+      this.drawmargin();
+      // this.doc.setTextColor(0, 0, 0);
+      this.doc.setFontSize(25);
       this.H1 = 110;
       this.doc.text(this.doc_detail, 240, 40);
 
@@ -500,7 +517,9 @@ export class HeaderComponent implements OnInit {
         }
         // this.doc.setFont('bold');
         this.checkpage();
+        this.doc.setTextColor(60, 60, 60);
         this.doc.text('Interpretation:', 40, this.H1);
+        this.doc.setTextColor(112, 112, 112);
         this.H1 = this.H1 + 20;
         this.checkpage();
         let mycounter = 0;
@@ -590,9 +609,43 @@ export class HeaderComponent implements OnInit {
             }
           }
         }
-
         this.H1 = this.H1 + 20;
+
+        if (this.allcalcs[z][0] == 'Quick COVID-19 Severity Index') {
+          if (this.H1 >= 620) {
+            this.doc.addPage();
+            this.drawmargin();
+            this.H1 = 40;
+          }
+
+          console.log(this.cal6_score);
+          let img = new Image();
+
+          if (this.cal6_score['qCSI Score'] < 3) {
+            img.src = 'assets/image/first.jpg';
+          } else if (
+            this.cal6_score['qCSI Score'] >= 3 &&
+            this.cal6_score['qCSI Score'] < 6
+          ) {
+            img.src = 'assets/image/second.jpg';
+          } else if (
+            this.cal6_score['qCSI Score'] >= 6 &&
+            this.cal6_score['qCSI Score'] < 9
+          ) {
+            img.src = 'assets/image/third.jpg';
+          } else if (this.cal6_score['qCSI Score'] >= 9) {
+            img.src = 'assets/image/fourth.jpg';
+          } else {
+            img.src = 'assets/image/g1.jpg';
+          }
+
+          // img.src = 'assets/image/g1.jpg';
+          this.doc.addImage(img, 'JPG', this.L1, this.H1, 200, 150);
+          this.H1 = this.H1 + 150;
+        }
+
         // this.doc.setFont('normal');
+        this.H1 = this.H1 + 20;
         this.doc.setDrawColor(0, 91, 170);
         this.doc.line(40, this.H1, 550, this.H1);
       }

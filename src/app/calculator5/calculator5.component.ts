@@ -507,12 +507,12 @@ export class Calculator5Component implements OnInit {
           this.cvd_risk = '>30';
           this.heart_age = '>80';
         }
-        let final_score = {
-          'CVD Risk for Women/Men (%)': this.cvd_risk,
-          'Heart Age/Vascular Age for Women/Men (years)': this.heart_age,
-        };
-        localStorage.setItem('cal5_score', JSON.stringify(final_score));
       }
+      let final_score = {
+        'CVD Risk for Women/Men (%)': this.cvd_risk,
+        'Heart Age/Vascular Age for Women/Men (years)': this.heart_age,
+      };
+      localStorage.setItem('cal5_score', JSON.stringify(final_score));
     } else {
       alert('Please fill all details');
     }
