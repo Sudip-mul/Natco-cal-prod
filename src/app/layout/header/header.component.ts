@@ -5,6 +5,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 import jspdf from 'jspdf';
 import { DialogPopupComponent } from 'src/app/calculator1/dialog-popup/dialog-popup.component';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -23,8 +24,10 @@ export class HeaderComponent implements OnInit {
   patient_id_pdf: string = '';
   age_pdf: string = '';
   city_pdf: string = '';
-  bp_pdf: string = '';
+  sbp_pdf: string = '';
+  dbp_pdf: string = '';
   gender_pdf: string = '';
+  myreport: any;
 
   undefined: any;
 
@@ -76,7 +79,11 @@ export class HeaderComponent implements OnInit {
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
   @Output() pdf: EventEmitter<any> = new EventEmitter();
 
-  constructor(private router: Router, public dialog: MatDialog) {}
+  constructor(
+    private router: Router,
+    public dialog: MatDialog,
+    private login: LoginService
+  ) {}
 
   calllocalstorage() {
     //doctor detail
@@ -85,15 +92,17 @@ export class HeaderComponent implements OnInit {
 
     //patient detail
     this.detail = localStorage.getItem('patient_data');
+    console.log(localStorage.getItem('patient_data'));
     this.detail = JSON.parse(this.detail);
 
-    if (localStorage.getItem('patient_data') != null) {
+    if (this.detail) {
       this.patient_id_pdf = this.detail['patient_id'];
       this.name_pdf = this.detail['name'];
       this.age_pdf = this.detail['age'];
       this.gender_pdf = this.detail['gender'];
       this.city_pdf = this.detail['city'];
-      this.bp_pdf = this.detail['bp'];
+      this.sbp_pdf = this.detail['sbp'];
+      this.dbp_pdf = this.detail['dbp'];
     } else {
       console.log('Patient details are empty');
     }
@@ -238,7 +247,7 @@ export class HeaderComponent implements OnInit {
     this.H1 = this.H1 + 20;
 
     this.doc.text('Age:', this.L1, this.H1);
-    this.doc.text(this.age_pdf, this.L2, this.H1);
+    this.doc.text(this.age_pdf.toString(), this.L2, this.H1);
 
     this.doc.text('Gender:', this.L3, this.H1);
     this.doc.text(this.gender_pdf, this.L4, this.H1);
@@ -248,8 +257,13 @@ export class HeaderComponent implements OnInit {
     this.doc.text('City:', this.L1, this.H1);
     this.doc.text(this.city_pdf, this.L2, this.H1);
 
-    this.doc.text('Blood pressure:', this.L3, this.H1);
-    this.doc.text(this.bp_pdf, this.L4, this.H1);
+    this.doc.text('Systolic Blood Pressure:', this.L3, this.H1);
+    this.doc.text(this.sbp_pdf.toString(), this.L4, this.H1);
+
+    this.H1 = this.H1 + 20;
+
+    this.doc.text('Diastolic Blood Pressure:', this.L1, this.H1);
+    this.doc.text(this.dbp_pdf.toString(), this.L2, this.H1);
 
     this.H1 = this.H1 + 20;
 
@@ -274,6 +288,8 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  savereports() {}
+
   download() {
     this.allcalcs = [];
     this.cal1_array = [];
@@ -291,14 +307,18 @@ export class HeaderComponent implements OnInit {
     this.cal6_score = {};
     this.cal7_score = {};
     this.calllocalstorage();
-    if (localStorage.getItem('patient_data') != null) {
+
+    if (
+      localStorage.getItem('patient_data') ||
+      localStorage.getItem('patient_data') != 'null'
+    ) {
       this.maintitle();
       this.doc = new jspdf('p', 'pt', 'a4');
       this.drawmargin();
       // this.doc.setTextColor(0, 0, 0);
-      this.doc.setFontSize(25);
+      this.doc.setFontSize(16);
       this.H1 = 110;
-      this.doc.text(this.doc_detail, 240, 40);
+      this.doc.text('DR. ' + this.doc_detail.toUpperCase(), this.L1, 40);
 
       this.patientdetails();
 
@@ -345,7 +365,7 @@ export class HeaderComponent implements OnInit {
 
       if (localStorage.getItem('cal3_detail') != null) {
         let calc3 = [
-          ['VTA Risk Score'],
+          ['VTE Risk Score'],
           [
             'Previous VTE',
             'Known thrombophilia',
@@ -409,6 +429,7 @@ export class HeaderComponent implements OnInit {
             'Repiratory rate, breaths/min',
             'Pulse oximetry',
             'O2 flow rate, L/min',
+            'D-dimer' + '2'.sup() + ' (ng/ml)',
           ],
           this.cal6_array,
           this.cal6_score,
@@ -559,46 +580,194 @@ export class HeaderComponent implements OnInit {
                 this.H1 + 20
               );
               this.newcharlen = this.allcalcs[z][3][key].toString().length;
-              if (this.newcharlen < 37) {
+              if (this.newcharlen < 35) {
                 this.doc.text(
                   this.allcalcs[z][3][key].toString(),
                   this.L4,
                   this.H1
                 );
-              } else {
+              } else if (this.newcharlen >= 35 && this.newcharlen < 70) {
                 this.doc.text(
-                  this.allcalcs[z][3][key].toString().substring(0, 37) + ' -',
+                  this.allcalcs[z][3][key].toString().substring(0, 35) + ' -',
                   this.L4,
                   this.H1
                 );
                 this.H1 = this.H1 + 20;
                 this.templength = this.H1;
                 this.doc.text(
-                  this.allcalcs[z][3][key].toString().substring(37, 74) + ' -',
+                  this.allcalcs[z][3][key].toString().substring(35, 70),
+                  this.L4,
+                  this.H1
+                );
+              } else if (this.newcharlen >= 70 && this.newcharlen < 105) {
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(0, 35) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.templength = this.H1;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(35, 70) + ' -',
                   this.L4,
                   this.H1
                 );
                 this.H1 = this.H1 + 20;
                 this.doc.text(
-                  this.allcalcs[z][3][key].toString().substring(74, 112) + ' -',
+                  this.allcalcs[z][3][key].toString().substring(70, 105),
+                  this.L4,
+                  this.H1
+                );
+              } else if (this.newcharlen >= 105 && this.newcharlen < 140) {
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(0, 35) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.templength = this.H1;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(35, 70) + ' -',
                   this.L4,
                   this.H1
                 );
                 this.H1 = this.H1 + 20;
                 this.doc.text(
-                  this.allcalcs[z][3][key].toString().substring(112, 148) +
+                  this.allcalcs[z][3][key].toString().substring(70, 105) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(105, 140),
+                  this.L4,
+                  this.H1
+                );
+              } else if (this.newcharlen >= 140 && this.newcharlen < 170) {
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(0, 35) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.templength = this.H1;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(35, 70) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(70, 105) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(105, 140) +
                     ' -',
                   this.L4,
                   this.H1
                 );
                 this.H1 = this.H1 + 20;
                 this.doc.text(
-                  this.allcalcs[z][3][key]
-                    .toString()
-                    .substring(148, this.newcharlen),
+                  this.allcalcs[z][3][key].toString().substring(140, 170),
                   this.L4,
                   this.H1
                 );
+              } else if (this.newcharlen >= 170 && this.newcharlen < 205) {
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(0, 35) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.templength = this.H1;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(35, 70) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(70, 105) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(105, 140) +
+                    ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(140, 170) +
+                    ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(170, 205),
+                  this.L4,
+                  this.H1
+                );
+              } else {
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(0, 35) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.templength = this.H1;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(35, 70) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(70, 105) + ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(105, 140) +
+                    ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(140, 170) +
+                    ' -',
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(170, 205),
+                  this.L4,
+                  this.H1
+                );
+                this.H1 = this.H1 + 20;
+                this.doc.text(
+                  this.allcalcs[z][3][key].toString().substring(205, 230) +
+                    '...',
+                  this.L4,
+                  this.H1
+                );
+                // this.H1 = this.H1 + 20;
+                // this.doc.text(
+                //   this.allcalcs[z][3][key]
+                //     .toString()
+                //     .substring(148, this.newcharlen),
+                //   this.L4,
+                //   this.H1
+                // );
               }
 
               // this.H1 = this.H1 + 20;
@@ -651,12 +820,31 @@ export class HeaderComponent implements OnInit {
       }
 
       this.doc.output('dataurlnewwindow');
+
+      this.myreport = this.doc;
+      // this.login
+      //   .savereport(this.doc_detail, 'Static', this.myreport)
+      //   .subscribe((res) => {
+      //     // console.log(res['res']);
+      //     alert(res);
+      //   });
+      // console.log('Report is here: ');
+      // console.log(this.myreport);
     } else {
       alert('Patient details are to be saved to generate the report');
     }
   }
 
   clearit() {
+    this.myreport = '';
+    this.detail = '';
+    this.patient_id_pdf = '';
+    this.name_pdf = '';
+    this.age_pdf = '';
+    this.gender_pdf = '';
+    this.city_pdf = '';
+    this.sbp_pdf = '';
+    this.dbp_pdf = '';
     localStorage.removeItem('patient_data');
     localStorage.removeItem('cal1_detail');
     localStorage.removeItem('cal2_detail');
@@ -678,6 +866,8 @@ export class HeaderComponent implements OnInit {
     this.toggleSidebarForMe.emit();
   }
   exit() {
+    localStorage.removeItem('doctor_data');
+    this.clearit();
     this.router.navigate(['/login']);
   }
 
@@ -699,8 +889,11 @@ export class HeaderComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log('dialog data');
-      console.log(result);
-      localStorage.setItem('patient_data', JSON.stringify(result));
+      console.log('Here it is: ' + result != '');
+      if (result) {
+        console.log('Result is: ' + result);
+        localStorage.setItem('patient_data', JSON.stringify(result));
+      }
       // console.log(`Dialog result: ${result}`);
     });
   }

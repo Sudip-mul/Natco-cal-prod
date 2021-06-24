@@ -24,30 +24,33 @@ export class LoginComponent implements OnInit {
 
   logInUser() {
     if (this.formGroup.valid) {
-      if (this.formGroup.value.password == '123456') {
-        console.log(
-          'welcome to dashboard, your email is = ' + this.formGroup.value.email
-        );
+      // if (this.formGroup.value.password == '123456') {
+      console.log(
+        'welcome to dashboard, your email is = ' + this.formGroup.value.email
+      );
 
-        // username= this.formGroup.value.email,
-        // password= this.formGroup.value.password,
-        this.login
-          .getAll(this.formGroup.value.email, this.formGroup.value.password)
-          .subscribe((res) => {
-            console.log(res);
-          });
+      // username= this.formGroup.value.email,
+      // password= this.formGroup.value.password,
+      this.login
+        .getAll(this.formGroup.value.email, this.formGroup.value.password)
+        .subscribe((res) => {
+          // console.log(res['res']);
 
-        this.route.navigate(['./calculator1']);
-        // alert("welcome to dashboard")
-        localStorage.setItem(
-          'doctor_data',
-          JSON.stringify(this.formGroup.value.email)
-        );
-        localStorage.setItem('loggedin', 'true');
-      } else {
-        console.log('unauthorised user');
-        alert('Please enter correct password');
-      }
+          if (res['res'] == 'Logged in successfully') {
+            // console.log('If satisfied');
+            this.route.navigate(['./calculator1']);
+            // alert("welcome to dashboard")
+            localStorage.setItem(
+              'doctor_data',
+              JSON.stringify(this.formGroup.value.email)
+            );
+            localStorage.setItem('loggedin', 'true');
+            localStorage.removeItem('patient_data');
+          } else {
+            console.log('unauthorised user');
+            alert(res['res']);
+          }
+        });
     }
   }
 }

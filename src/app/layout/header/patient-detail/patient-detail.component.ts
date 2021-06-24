@@ -9,7 +9,8 @@ export interface DialogData {
   name: string;
   city: string;
   age: string;
-  bp: string;
+  sbp: string;
+  dbp: string;
 }
 
 @Component({
@@ -22,12 +23,14 @@ export class PatientDetailComponent implements OnInit {
   name: string = '';
   city: string = '';
   age: string = '';
-  bp: string = '';
+  sbp: string = '';
+  dbp: string = '';
   gender: string = '';
   doc_detail: any;
 
   constructor(
     private insert: LoginService,
+    private newdialogRef: MatDialog,
     public dialogRef: MatDialogRef<PatientDetailComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {
@@ -43,7 +46,8 @@ export class PatientDetailComponent implements OnInit {
     name: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
     age: new FormControl('', [Validators.required]),
-    bp: new FormControl('', [Validators.required]),
+    sbp: new FormControl('', [Validators.required]),
+    dbp: new FormControl('', [Validators.required]),
     gender: new FormControl('', [Validators.required]),
   });
 
@@ -57,12 +61,16 @@ export class PatientDetailComponent implements OnInit {
           this.formGroup.value.age,
           this.formGroup.value.gender,
           this.formGroup.value.city,
-          this.formGroup.value.bp
+          this.formGroup.value.sbp,
+          this.formGroup.value.dbp
         )
         .subscribe((res) => {
           console.log(res);
         });
-      this.dialogRef.close(this.formGroup.value);
+      if (this.formGroup.valid) {
+        this.dialogRef.close(this.formGroup.value);
+      }
+
       console.log('success');
       // alert("patient detail filled successfully");
     }

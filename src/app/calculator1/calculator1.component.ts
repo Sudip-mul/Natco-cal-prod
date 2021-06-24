@@ -77,7 +77,10 @@ export class Calculator1Component implements OnInit {
       } else {
         this.refscore = 12.5;
       }
-      let final_score = { Score: this.score, Refscore: this.refscore };
+      let final_score = {
+        'HasBled score': this.score,
+        'Bleed per 100 patient- year': this.refscore,
+      };
       localStorage.setItem('cal1_score', JSON.stringify(final_score));
     } else {
       alert('Please fill all details');

@@ -69,16 +69,17 @@ export class Calculator4Component implements OnInit {
         // this.refscore = 1.13;
         this.risk_level = 'Low';
         this.throm_event_rate = '0%';
-        this.treat_recom = 'No treatment (preferred) or aspirin 75-325 mg/day';
+        this.treat_recom = 'No antithrombotic treatment';
       } else if (this.score == 1) {
         this.risk_level = 'Intermediate';
         this.throm_event_rate = '0.46-2.8%';
         this.treat_recom =
-          'VKA with INR goal 2.0–3.0 (preferred) (Class 1, level A) or dabigatran may be an option for specific populations (preferred over aspirin) or aspirin 81–325 mg/day (Class 1, level B)';
+          'Oral anticoagulant is recommended for stroke prevention in AF (Class II, level B); Non-vitamin K antagonist oral anticoagulants (NOACs) are recommended in preference to VKAs (Class I, level A). VKA with INR goal 2.0–3.0 in patients with mechanical heart valves or moderate-to-severe mitral stenosis (Class I, level B).';
       } else {
         this.risk_level = 'High';
         this.throm_event_rate = '3.0-5.0%';
-        this.treat_recom = 'VKA with INR goal 2.0–3.0';
+        this.treat_recom =
+          'Oral anticoagulant is recommended for stroke prevention in AF (Class I, level A); Non-vitamin K antagonist oral anticoagulants (NOACs) are recommended in preference to VKAs (Class I, level A). VKA with INR goal 2.0–3.0 in patients with mechanical heart valves or moderate-to-severe mitral stenosis (Class I, level B).';
       }
 
       if (this.score == 0) {

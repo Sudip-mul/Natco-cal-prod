@@ -10,6 +10,25 @@ import { environment } from 'src/environments/environment.prod';
 export class LoginService {
   constructor(private http: HttpClient) {}
 
+  savereport(username: string, patientname: string, pdfdata: any) {
+    let body = {
+      username: username,
+      patientname: patientname,
+      pdfdata: pdfdata,
+      token: 'HWV8joY1OZYliRSLrJ0Spk5fiasqAWP7',
+    };
+    return this.http
+      .post(environment.apiurl + 'storereports.php', body)
+      .map((data) => {
+        // console.log(result)
+        let arr: any = data;
+        // for (var i in result) {
+        //     arr[i] = (JSON.parse(result[i]))
+        // }
+        return arr;
+      });
+  }
+
   getAll(username: string, password: string) {
     return this.http
       .get(
@@ -35,6 +54,28 @@ export class LoginService {
       });
   }
 
+  changePwd(username: string, oldpassword: string, newpassword: string) {
+    return this.http
+      .get(
+        environment.apiurl +
+          'updatepassword.php?username=' +
+          username +
+          '&oldpassword=' +
+          oldpassword +
+          '&newpassword=' +
+          newpassword +
+          '&token=HWV8joY1OZYliRSLrJ0Spk5fiasqAWP7'
+      )
+      .map((data) => {
+        // console.log(result)
+        let arr: any = data;
+        // for (var i in result) {
+        //     arr[i] = (JSON.parse(result[i]))
+        // }
+        return arr;
+      });
+  }
+
   insertpatient(
     username: string,
     patient_id: string,
@@ -42,7 +83,8 @@ export class LoginService {
     age: string,
     gender: string,
     city: string,
-    blood_pressure: string
+    s_blood_pressure: string,
+    d_blood_pressure: string
   ) {
     return this.http
       .get(
@@ -59,8 +101,10 @@ export class LoginService {
           gender +
           '&city=' +
           city +
-          '&blood_pressure=' +
-          blood_pressure +
+          '&s_blood_pressure=' +
+          s_blood_pressure +
+          '&d_blood_pressure=' +
+          d_blood_pressure +
           '&token=HWV8joY1OZYliRSLrJ0Spk5fiasqAWP7'
         // {
         //   headers: {

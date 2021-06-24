@@ -11,7 +11,7 @@
       quick Sequential [Sepsis-related] Organ Failure Assessment and CURB-65, on
       an independent validation cohort. The quick COVID-19 Severity Index model
       may be useful to assist level-of-care decisions for admitted COVID-19
-      patients.
+      patients<sup> 1 </sup>.
     </mat-card-content>
   </mat-card>
 
@@ -58,6 +58,18 @@
               />
             </span>
           </p>
+          <p class="p-tag">
+            <span>D-dimer<sup>2</sup> (ng/ml)</span>
+            <span class="radiobtn">
+              <input
+                class="inputbox"
+                matInput
+                type="number"
+                placeholder="Number..."
+                formControlName="score4"
+              />
+            </span>
+          </p>
         </div>
       </div>
 
@@ -92,11 +104,20 @@
               <th>qCSI Score</th>
               <th>Risk group</th>
               <th>Risk of critical illness* at 24 hrs</th>
+              <th>
+                Anticoagulation Recommendation (ESC guidelines)<sup>2</sup>
+              </th>
             </tr>
             <tr>
               <td>{{ score }}</td>
               <td>{{ risk_group }}</td>
               <td>{{ risk_critical }}</td>
+              <td *ngIf="dimerrecom != '-'; else withoutsup">
+                {{ dimerrecom }}<sup>2</sup>
+              </td>
+              <ng-template #withoutsup>
+                <td>{{ dimerrecom }}</td>
+              </ng-template>
             </tr>
           </table>
         </div>
@@ -133,9 +154,13 @@
       </p>
       <p class="ref_head">Reference:</p>
       <p class="ref_def">
-        Haimovich AD, Ravindra NG, Stoytchev S, et al. Development and
+        1. Haimovich AD, Ravindra NG, Stoytchev S, et al. Development and
         Validation of the Quick COVID-19 Severity Index: A Prognostic Tool for
         Early Clinical Decompensation. <i>Ann Emerg Med</i>. 2020;76(4):442-453.
+      </p>
+      <p class="ref_def">
+        2. Tiwari NR, Khatib KI, Dixit SB, et al. Anticoagulation in COVID - 19:
+        An Update. <i>J Crit Care Med (Targu Mures)</i>. 2020;6(4):217-223.
       </p>
     </div>
 

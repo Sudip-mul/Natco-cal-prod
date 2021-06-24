@@ -168,7 +168,12 @@
               <td>{{ score }}</td>
               <td>{{ risk_level }}/{{ stroke_risk }}</td>
               <td>{{ throm_event_rate }}</td>
-              <td>{{ treat_recom }}</td>
+              <td *ngIf="treat_recom != '-'; else withoutsup">
+                {{ treat_recom }}<sup>3</sup>
+              </td>
+              <ng-template #withoutsup>
+                <td>{{ treat_recom }}</td>
+              </ng-template>
             </tr>
           </table>
         </div>
@@ -207,6 +212,15 @@
           guiding antithrombotic treatment of patients with atrial fibrillation:
           review of the literature and recommendations for use.
           <i>Pharmacotherapy</i>. 2012;32(3):285-296.
+        </li>
+        <li>
+          Hindricks G, Potpara T, Dagres N, et al. 2020 ESC Guidelines for the
+          diagnosis and management of atrial fibrillation developed in
+          collaboration with the European Association for Cardio-Thoracic
+          Surgery (EACTS): The Task Force for the diagnosis and management of
+          atrial fibrillation of the European Society of Cardiology (ESC)
+          Developed with the special contribution of the European Heart Rhythm
+          Association (EHRA) of the ESC. Eur Heart J. 2021;42(5):373-498.
         </li>
       </ol>
     </div>

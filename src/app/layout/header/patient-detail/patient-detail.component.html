@@ -1,33 +1,80 @@
 <h2 mat-dialog-title class="head">Patient detail</h2>
 
-<form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="formGroup" (ngSubmit)="submitDet()">
-    <mat-form-field style="text-align: center">
-
-        <input matInput placeholder="Patient ID(optional)" name="number" formControlName="patient_id">
-    </mat-form-field>
-    <mat-form-field style="text-align: center">
-
-        <input matInput placeholder="Name" name="name" formControlName="name" required>
-    </mat-form-field>
-    <mat-form-field style="text-align: center">
-
-        <input matInput placeholder="Gender" name="gender" formControlName="gender" required>
-    </mat-form-field>
-    <mat-form-field style="text-align: center">
-
-        <input matInput placeholder="Age" name="age" formControlName="age" required>
-    </mat-form-field>
-    <mat-form-field style="text-align: center">
-
-        <input matInput placeholder="City" name="city" formControlName="city" required>
-    </mat-form-field>
-    <mat-form-field style="text-align: center">
-
-        <input matInput placeholder="Blood Pressure" name="bp" formControlName="bp" required>
-    </mat-form-field>
-    <!-- <button class="submit" type="submit">Submit</button> -->
-    <mat-dialog-actions align="end">
-        <button mat-button mat-dialog-close class="cancel">Cancel</button>
-        <button mat-button cdkFocusInitial class="submit" type="submit">Submit</button>
-    </mat-dialog-actions>
+<form fxLayoutAlign="stretch" fxLayout="column" [formGroup]="formGroup">
+  <mat-form-field style="text-align: center">
+    <input
+      matInput
+      placeholder="Patient ID (optional)"
+      name="number"
+      formControlName="patient_id"
+    />
+  </mat-form-field>
+  <mat-form-field style="text-align: center">
+    <input
+      matInput
+      placeholder="Name"
+      name="name"
+      formControlName="name"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field style="text-align: center">
+    <mat-label>Gender</mat-label>
+    <mat-select disableRipple formControlName="gender">
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field style="text-align: center">
+    <input
+      type="number"
+      matInput
+      placeholder="Age"
+      name="age"
+      formControlName="age"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field style="text-align: center">
+    <input
+      matInput
+      placeholder="City"
+      name="city"
+      formControlName="city"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field style="text-align: center">
+    <input
+      type="number"
+      matInput
+      placeholder="Systolic Blood Pressure"
+      name="sbp"
+      formControlName="sbp"
+      required
+    />
+  </mat-form-field>
+  <mat-form-field style="text-align: center">
+    <input
+      type="number"
+      matInput
+      placeholder="Diastolic Blood Pressure"
+      name="dbp"
+      formControlName="dbp"
+      required
+    />
+  </mat-form-field>
+  <!-- <button class="submit" type="submit">Submit</button> -->
+  <mat-dialog-actions align="end">
+    <button
+      mat-button
+      cdkFocusInitial
+      class="submit"
+      (click)="submitDet()"
+      type="submit"
+    >
+      Save
+    </button>
+    <!-- <button mat-button (click)="cancel()" class="cancel">Cancel</button> -->
+  </mat-dialog-actions>
 </form>

@@ -11,11 +11,13 @@ export class Calculator6Component implements OnInit {
   score1: number = 0;
   score2: number = 0;
   score3: number = 0;
+  score4: number = 0;
   score: number = 0;
   imageurl: any = 'assets/image/g1.jpg';
 
   risk_group: string = '-';
   risk_critical: string = '-';
+  dimerrecom: string = '-';
 
   constructor(public dialog: MatDialog) {}
 
@@ -25,6 +27,7 @@ export class Calculator6Component implements OnInit {
     score1: new FormControl('', [Validators.required]),
     score2: new FormControl('', [Validators.required]),
     score3: new FormControl('', [Validators.required]),
+    score4: new FormControl('', [Validators.required]),
   });
 
   reset() {
@@ -72,6 +75,18 @@ export class Calculator6Component implements OnInit {
         this.score3 = 5;
       }
 
+      if (this.formGroup.value.score4 < 500) {
+        this.dimerrecom =
+          'Prophylactic dose anticoagulation (Enoxaparin 40 mg/day)';
+      } else if (
+        this.formGroup.value.score4 >= 500 &&
+        this.formGroup.value.score4 <= 3000
+      ) {
+        this.dimerrecom = 'Enoxaparin 40 mg twice a day';
+      } else {
+        this.dimerrecom = 'Enoxaparin 1 mg/kg twice a day';
+      }
+
       console.log(this.formGroup.value);
       localStorage.setItem('cal6_detail', JSON.stringify(this.formGroup.value));
       this.score = this.score1 + this.score2 + this.score3;
@@ -107,6 +122,7 @@ export class Calculator6Component implements OnInit {
         'qCSI Score': this.score,
         'Risk group	': this.risk_group,
         'Risk of critical illness* at 24 hrs': this.risk_critical,
+        'Anticoagulation Recommendation (ESC guidelines)2': this.dimerrecom,
       };
       localStorage.setItem('cal6_score', JSON.stringify(final_score));
     } else {
