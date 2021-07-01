@@ -20,8 +20,14 @@ export class Calculator5Component implements OnInit {
   cvd_risk: string = '-';
   heart_age: string = '-';
   patgender: string = 'Men/Women';
+  sbp: any;
+  finalsbp: any;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog) {
+    this.sbp = localStorage.getItem('patient_data');
+    this.sbp = JSON.parse(this.sbp);
+    this.finalsbp = this.sbp['sbp'];
+  }
 
   ngOnInit(): void {}
 
