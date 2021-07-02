@@ -120,7 +120,7 @@ export class Calculator6Component implements OnInit {
 
       let final_score = {
         'qCSI Score': this.score,
-        'Risk group	': this.risk_group,
+        'Risk group': this.risk_group,
         'Risk of critical illness* at 24 hrs': this.risk_critical,
         'Anticoagulation Recommendation (ESC guidelines)2': this.dimerrecom,
       };

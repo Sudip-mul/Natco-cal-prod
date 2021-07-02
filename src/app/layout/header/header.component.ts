@@ -81,6 +81,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private insert: LoginService,
     public dialog: MatDialog,
     private login: LoginService
   ) {}
@@ -340,10 +341,41 @@ export class HeaderComponent implements OnInit {
             'Alcohol',
           ],
           this.cal1_array,
+          
+
           this.cal1_score,
         ];
+        
 
         this.allcalcs.push(calc1);
+      }
+      if (localStorage.getItem('patient_data') ||
+        localStorage.getItem('patient_data') != 'null' && localStorage.getItem('cal1_detail') != null)
+      {
+        
+        this.insert.insertcalc1(
+          this.doc_detail,
+          this.patient_id_pdf,
+          this.name_pdf,
+          this.age_pdf,
+          this.gender_pdf,
+          this.city_pdf,
+          this.sbp_pdf,
+          this.dbp_pdf,
+          this.cal1_array[0],
+          this.cal1_array[1],
+          this.cal1_array[2],
+          this.cal1_array[3],
+          this.cal1_array[4],
+          this.cal1_array[5],
+          this.cal1_array[6],
+          this.cal1_array[7],
+          this.cal1_array[8],
+          this.cal1_score['HasBled score'],
+          this.cal1_score['Bleed per 100 patient- year']
+        ).subscribe((res) => {
+          console.log(res);
+        });
       }
 
       if (localStorage.getItem('cal2_detail') != null) {
@@ -362,6 +394,31 @@ export class HeaderComponent implements OnInit {
 
         this.allcalcs.push(calc2);
       }
+      if (localStorage.getItem('patient_data') ||
+        localStorage.getItem('patient_data') != 'null' && localStorage.getItem('cal2_detail') != null)
+      {
+        this.insert.insertcalc2(
+          this.doc_detail,
+          this.patient_id_pdf,
+          this.name_pdf,
+          this.age_pdf,
+          this.gender_pdf,
+          this.city_pdf,
+          this.sbp_pdf,
+          this.dbp_pdf,
+          this.cal2_array[0],
+          this.cal2_array[1],
+          this.cal2_array[2],
+          this.cal2_array[3],
+          this.cal2_array[4],
+          this.cal2_score['Atria Score'],
+          this.cal2_score['Risk Category'],
+          this.cal2_score['Clinical interpretation']
+
+        ).subscribe((res) => {
+          console.log(res);
+        });
+        }
 
       if (localStorage.getItem('cal3_detail') != null) {
         let calc3 = [
@@ -380,6 +437,33 @@ export class HeaderComponent implements OnInit {
         ];
 
         this.allcalcs.push(calc3);
+      }
+
+      if (localStorage.getItem('patient_data') ||
+        localStorage.getItem('patient_data') != 'null' && localStorage.getItem('cal3_detail') != null)
+      {
+        
+        this.insert.insertcalc3(
+          this.doc_detail,
+          this.patient_id_pdf,
+          this.name_pdf,
+          this.age_pdf,
+          this.gender_pdf,
+          this.city_pdf,
+          this.sbp_pdf,
+          this.dbp_pdf,
+          this.cal3_array[0],
+          this.cal3_array[1],
+          this.cal3_array[2],
+          this.cal3_array[3],
+          this.cal3_array[4],
+          this.cal3_array[5],
+          this.cal3_array[6],
+          this.cal3_score['Score'],
+          this.cal3_score['Risk category']
+        ).subscribe((res) => {
+          console.log(res);
+        });
       }
 
       if (localStorage.getItem('cal4_detail') != null) {
@@ -402,6 +486,36 @@ export class HeaderComponent implements OnInit {
         this.allcalcs.push(calc4);
       }
 
+      if (localStorage.getItem('patient_data') ||
+        localStorage.getItem('patient_data') != 'null' && localStorage.getItem('cal4_detail') != null)
+      {
+        
+        this.insert.insertcalc4(
+          this.doc_detail,
+          this.patient_id_pdf,
+          this.name_pdf,
+          this.age_pdf,
+          this.gender_pdf,
+          this.city_pdf,
+          this.sbp_pdf,
+          this.dbp_pdf,
+          this.cal4_array[0],
+          this.cal4_array[1],
+          this.cal4_array[2],
+          this.cal4_array[3],
+          this.cal4_array[4],
+          this.cal4_array[5],
+          this.cal4_array[6],
+          this.cal4_array[7],
+          this.cal4_score['Score'],
+          this.cal4_score['Risk level/Adjusted Stroke Risk'],
+          this.cal4_score['Thromboembolic event rate'],
+          this.cal4_score['Treatment Recommendations (ESC guidelines 2010)']
+        ).subscribe((res) => {
+          console.log(res);
+        });
+      }
+
       if (localStorage.getItem('cal5_detail') != null) {
         let calc5 = [
           ['Cardiovascular Disease (10-year risk)'],
@@ -422,6 +536,35 @@ export class HeaderComponent implements OnInit {
         this.allcalcs.push(calc5);
       }
 
+      if (localStorage.getItem('patient_data') ||
+        localStorage.getItem('patient_data') != 'null' && localStorage.getItem('cal5_detail') != null)
+      {
+        
+        this.insert.insertcalc5(
+          this.doc_detail,
+          this.patient_id_pdf,
+          this.name_pdf,
+          this.age_pdf,
+          this.gender_pdf,
+          this.city_pdf,
+          this.sbp_pdf,
+          this.dbp_pdf,
+          this.cal5_array[0],
+          this.cal5_array[1],
+          this.cal5_array[2],
+          this.cal5_array[3],
+          this.cal5_array[4],
+          this.cal5_array[5],
+          this.cal5_array[6],
+          this.cal5_array[7],
+          
+          this.cal5_score['CVD Risk for Women/Men (%)'],
+          this.cal5_score['Heart Age/Vascular Age for Women/Men (years)']
+        ).subscribe((res) => {
+          console.log(res);
+        });
+      }
+
       if (localStorage.getItem('cal6_detail') != null) {
         let calc6 = [
           ['Quick COVID-19 Severity Index'],
@@ -438,6 +581,32 @@ export class HeaderComponent implements OnInit {
         this.allcalcs.push(calc6);
       }
 
+      if (localStorage.getItem('patient_data') ||
+        localStorage.getItem('patient_data') != 'null' && localStorage.getItem('cal6_detail') != null)
+      {
+        
+        this.insert.insertcalc6(
+          this.doc_detail,
+          this.patient_id_pdf,
+          this.name_pdf,
+          this.age_pdf,
+          this.gender_pdf,
+          this.city_pdf,
+          this.sbp_pdf,
+          this.dbp_pdf,
+          this.cal6_array[0],
+          this.cal6_array[1],
+          this.cal6_array[2],
+          this.cal6_array[3],
+          this.cal6_score['qCSI Score'],
+          this.cal6_score['Risk group'],
+          this.cal6_score['Risk of critical illness* at 24 hrs'],
+          this.cal6_score['Anticoagulation Recommendation (ESC guidelines)2']
+        ).subscribe((res) => {
+          console.log(res);
+        });
+      }
+
       if (localStorage.getItem('cal7_detail') != null) {
         let calc7 = [
           ['Argatroban Dosing'],
@@ -452,6 +621,32 @@ export class HeaderComponent implements OnInit {
         ];
 
         this.allcalcs.push(calc7);
+      }
+
+      if (localStorage.getItem('patient_data') ||
+        localStorage.getItem('patient_data') != 'null' && localStorage.getItem('cal7_detail') != null)
+      {
+        
+        this.insert.insertcalc7(
+          this.doc_detail,
+          this.patient_id_pdf,
+          this.name_pdf,
+          this.age_pdf,
+          this.gender_pdf,
+          this.city_pdf,
+          this.sbp_pdf,
+          this.dbp_pdf,
+          this.cal7_array[0],
+          this.cal7_array[1],
+          this.cal7_array[2],
+          this.cal7_array[3],
+          this.cal7_score['Bolus dose'],
+          this.cal7_score['Bolus Volume (mL)'],
+          this.cal7_score['Continuous Infusion Dose (mcg/min)'],
+          this.cal7_score['Continuous Infusion Rate (mL/hr)']
+        ).subscribe((res) => {
+          console.log(res);
+        });
       }
 
       // let calc2 = [

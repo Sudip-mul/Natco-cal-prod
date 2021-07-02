@@ -40,6 +40,7 @@ export class Calculator7Component implements OnInit {
       this.isShown = !this.isShown;
     } else {
       this.isShown = false;
+      this.formGroup.value.score3 = { disabled: true };
     }
     // console.log(this.score2);
     // if (this.formGroup.value.score2 === 'Patients with HIT') {
