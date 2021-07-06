@@ -25,7 +25,8 @@ import { HomeLayoutComponent } from './home-layout/home-layout.component';
 import { LoginLayoutComponent } from './login-layout/login-layout.component';
 import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
 import { MatSelectModule } from '@angular/material/select';
-
+import { NgxCaptchaModule } from 'ngx-captcha';
+import {MatTableModule} from '@angular/material/table';
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -55,6 +56,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatRadioModule,
     MatDialogModule,
     MatSelectModule,
+    NgxCaptchaModule,
+    MatTableModule,
   ],
 })
 export class LayoutModule {}

@@ -38,6 +38,9 @@ import { Calculator7Component } from './calculator7/calculator7.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { PastreportsComponent } from './pastreports/pastreports.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
 // import { TestpdfComponent } from './testpdf/testpdf.component';
 // import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
 @NgModule({
@@ -80,6 +83,9 @@ import { PastreportsComponent } from './pastreports/pastreports.component';
     MatRadioModule,
     MatDialogModule,
     MatSelectModule,
+    NgxCaptchaModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [],
   bootstrap: [AppComponent],

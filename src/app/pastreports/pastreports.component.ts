@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit   } from '@angular/core';
+
+
+
+
 
 @Component({
   selector: 'app-pastreports',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PastreportsComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+
+  
+
+  constructor( ) {
+    // Create 100 users
+    
+    
+
   }
 
+  ngOnInit(): void {
+    
+    
+  }
+
+  
 }
+
+
+
