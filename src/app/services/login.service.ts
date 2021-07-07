@@ -5,24 +5,36 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment.prod';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
   constructor(private http: HttpClient) {}
 
-  savereport(username: string, patientname: string, pdfdata: any) {
-    let body = {
-      username: username,
-      patientname: patientname,
-      pdfdata: pdfdata,
-      token: 'HWV8joY1OZYliRSLrJ0Spk5fiasqAWP7',
-    };
+
+  reportdel(id: string) {
     return this.http
-      .post(environment.apiurl + 'storereports.php', body)
+    .get(
+      environment.apiurl +
+        'reportdel.php?id=' +
+        id)
+      .pipe(map((data) => {
+        let arr: any = data;
+        return arr;
+      }));
+  }
+
+  getreport(username: string) {
+    return this.http
+    .get(
+      environment.apiurl +
+        'getreports.php?username=' +
+        username)
       .pipe(map((data) => {
         // console.log(result)
         let arr: any = data;
+        console.log(data);
         // for (var i in result) {
         //     arr[i] = (JSON.parse(result[i]))
         // }

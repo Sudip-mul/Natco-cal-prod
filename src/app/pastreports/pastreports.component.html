@@ -1,15 +1,16 @@
 <div class="container-fluid page">
     <mat-card>
-        <mat-card-title class="header">Doctor name: <span>doc_detail</span></mat-card-title>
+        <mat-card-title class="header">Doctor name: <span style = "text-transform: uppercase;">DR. {{docname}}</span></mat-card-title>
     </mat-card>
     <mat-card style="margin-top: 25px;">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">patient_name</th>
-                    <th scope="col">patient_id</th>
-                    <th scope="col">Created_date</th>
+                    <th scope="col">Patient name</th>
+                    <th scope="col">Patient age</th>
+                    <th scope="col">Created date</th>
+                    <th scope="col">View report</th>
+                    <th scope="col">Delete report</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,24 +20,14 @@
             <td>Otto</td>
             <td >@mdo</td>
         </tr> -->
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
+                <tr *ngFor = "let i of mydata; let j as index">
+                    <td>{{i['3']}}</td>
+                    <td>{{i['4']}}</td>
+                    <td>{{i['75']}}</td>
+                    <td class = "textcolorblue" (click)=viewreport(j)>View</td>
+                    <td class = "textcolorred" (click)=deletereport(j)>Delete</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+
             </tbody>
         </table>
     </mat-card>

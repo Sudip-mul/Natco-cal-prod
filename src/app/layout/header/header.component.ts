@@ -649,8 +649,7 @@ export class HeaderComponent implements OnInit {
         });
       }
 
-      if (localStorage.getItem('patient_data') ||
-        localStorage.getItem('patient_data') != 'null' || localStorage.getItem('cal1_detail') != null || localStorage.getItem('cal2_detail') != null || localStorage.getItem('cal3_detail') != null || localStorage.getItem('cal4_detail') != null || localStorage.getItem('cal5_detail') != null || localStorage.getItem('cal6_detail') != null || localStorage.getItem('cal7_detail') != null)
+      if (localStorage.getItem('patient_data') != null)
       {
         
         this.insert.insertallcalc(

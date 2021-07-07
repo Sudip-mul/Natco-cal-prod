@@ -14,3 +14,15 @@
     font-family: 'poppins';
     font-size: 20px;
 }
+
+.textcolorblue{
+    color: #005baa;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.textcolorred{
+    color: #ee1e24;
+    font-weight: 600;
+    cursor: pointer;
+}

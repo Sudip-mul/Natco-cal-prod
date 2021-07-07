@@ -41,6 +41,7 @@ import { PastreportsComponent } from './pastreports/pastreports.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
+import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
 // import { TestpdfComponent } from './testpdf/testpdf.component';
 // import { PatientDetailComponent } from './header/patient-detail/patient-detail.component';
 @NgModule({
@@ -87,7 +88,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatSortModule
   ],
-  providers: [],
+  providers: [
+    {provide : LocationStrategy , useClass: HashLocationStrategy}
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
